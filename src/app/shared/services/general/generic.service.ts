@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ObservableStore } from '@codewithdan/observable-store';
-import { GenericDataActions, GenericDataState } from 'src/app/common/store-states';
 import { Categorias, Provincias } from '../../models/generic.models';
+import { GenericDataState, GenericDataActions } from 'src/app/modules/store-states';
 
 export const headers = new HttpHeaders().set("Content-Type", "application/json",);
 
@@ -13,8 +13,8 @@ export const headers = new HttpHeaders().set("Content-Type", "application/json",
 })
 export class GenericService extends ObservableStore<GenericDataState> {
 
-  
-  constructor(private readonly http: HttpClient) { 
+
+  constructor(private readonly http: HttpClient) {
     super({ stateSliceSelector: (state) => {return {
       Provincias: state !== null ? state.Provincias : [],
       Categorias: state !== null ? state.Categorias : [],
@@ -22,7 +22,7 @@ export class GenericService extends ObservableStore<GenericDataState> {
     this.initDataStore({Provincias:[], Categorias: []});
   }
 
-    GetProvincias(): Observable<Provincias[]> { 
+    GetProvincias(): Observable<Provincias[]> {
        if(this.getState().Provincias.length > 0) return of(this.getState().Provincias);
         return this.http
             .get<any>(`${environment.base_url}/provincias`,{headers})
@@ -60,7 +60,7 @@ export class GenericService extends ObservableStore<GenericDataState> {
         this.setState({...dt }, `${GenericDataActions.Set}~initObjMstrDt`);
     }
 
-//#endregion   
+//#endregion
 
 
 }

@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
-import { PRIMENG_MODULE } from '../utils/primeng.modules';
+import { PRIMENG_MODULE } from '../../modules/primeng.modules';
 
 import { FormlyCustomMessages } from './config/formly-custom-messages';
 import { AutocompletePrimeNgType } from './types/autocomplete.type';

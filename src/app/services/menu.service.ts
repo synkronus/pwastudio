@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ObservableStore } from '@codewithdan/observable-store';
-import { MenuStates, MenuActions } from '../common/store-states';
 import { truncate, omit } from 'lodash';
+import { MenuActions, MenuStates } from '../modules/store-states';
 @Injectable({
     providedIn: 'root'
 })
@@ -31,13 +31,13 @@ export class MenuService extends ObservableStore<MenuStates> {
 
     private dtTranform(dt) {
         let arr = dt.slice();
-        return arr.reduce((z,a,i) => { 
+        return arr.reduce((z,a,i) => {
           let x = !!z && z.slice().find( y => y.md_link == a.md_link );
-          if (!!x)   
+          if (!!x)
             z.map( y => (y.md_link == a.md_link) ? y['items'].push({ ft_title: truncate(a.ft_title,  { length: 22, 'separator': ''}), ft_icon: `${a.ft_icon}`, routerLink: [`/${a.md_link}/${a.ft_link}`], feature: a.feature }) : y )
-         else z.push({md_link: a.md_link, md_title: a.md_title, md_icon: `${a.md_icon}`,  module: `${a.module},`, routerLink:[`/${a.md_link}`], 
-                      items:[{ ft_title: truncate(a.ft_title,  { length: 22, 'separator': ''}), ft_icon: `${a.ft_icon}`, routerLink: [`/${a.md_link}/${a.ft_link}`], feature: a.feature }]}); 
-          return z;            
+         else z.push({md_link: a.md_link, md_title: a.md_title, md_icon: `${a.md_icon}`,  module: `${a.module},`, routerLink:[`/${a.md_link}`],
+                      items:[{ ft_title: truncate(a.ft_title,  { length: 22, 'separator': ''}), ft_icon: `${a.ft_icon}`, routerLink: [`/${a.md_link}/${a.ft_link}`], feature: a.feature }]});
+          return z;
         },[])
         .map(o => {return o.items[0]['feature'] === undefined ? omit(o,['items']) : omit(o,['routerLink'])});
       }
@@ -82,7 +82,7 @@ export class MenuService extends ObservableStore<MenuStates> {
         }
 
     }
-    
+
       getMenuOp(op): any {
             switch (op) {
                 case 'menuMode':

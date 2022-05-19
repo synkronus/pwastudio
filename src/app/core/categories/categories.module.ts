@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CategoriesComponent } from './categories.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriesService } from './services/categories.service';
-import { PRIMENG_MODULE, PRIMENG_PROVIDERS } from '../../shared/utils/primeng.modules';
+import { PRIMENG_MODULE, PRIMENG_PROVIDERS } from '../../modules/primeng.modules';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryItemsComponent } from './category-items/category-items.component';
 

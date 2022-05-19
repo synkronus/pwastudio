@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import { I18nService } from './i18n.service';
 import { PrimeNGConfig } from 'primeng/api';
-import UnSubscribe from '../shared/utils/unsubscribe';
+import UnSubscribe from '../../shared/utils/unsubscribe';
 
 @Component({
   selector: 'app-lang-selector',

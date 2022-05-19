@@ -1,0 +1,53 @@
+{
+  "database": {
+    "rules": "config/database.rules.json"
+  },
+  "emulators": {
+    "firestore": {
+      "port": "4000"
+    }
+  },
+  "storage": {
+    "rules": "config/storage.rules"
+  },
+  "firestore": {
+    "rules": "config/firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint"
+    ]
+  },
+  "hosting": {
+    "public": "dist/credishop",
+    "site": "moviltec-shop",
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=7200"
+          }
+        ]
+      },
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self'; connect-src 'self' ws: wss: http://localhost:4200 https://*.googleapis.com; script-src 'unsafe-inline' 'unsafe-eval' 'self' https://*.google.com https://*.firebaseio.com https://cdn.ckeditor.com https://js.stripe.com/v2/; img-src 'self' data: https://*.googleusercontent.com https://firebasestorage.googleapis.com https://cdn.ckeditor.com https://*.stripe.com; font-src 'self' https://fonts.gstatic.com; style-src 'unsafe-inline' 'self' https://fonts.googleapis.com https://cdn.ckeditor.com; frame-src 'self' https://js.stripe.com https://*.firebaseio.com https://*.firebaseapp.com;"
+          }
+        ]
+      }
+    ]
+  }
+}

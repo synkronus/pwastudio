@@ -7,7 +7,7 @@ import { TableDynamicModule, BasicDialogModule} from '../../shared/components';
 import { GenericService } from '../../shared/services/general/generic.service';
 import { CardModule } from 'primeng/card';
 import { SimpleCrudComponent } from './simple-crud.component';
-import { PRIMENG_PROVIDERS } from '../../shared/utils/primeng.modules';
+import { PRIMENG_PROVIDERS } from '../../modules/primeng.modules';
 
 @NgModule({
   imports: [

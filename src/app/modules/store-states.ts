@@ -1,7 +1,7 @@
-import { userPermissionsclaims } from 'src/app/auth/models/org.model';
-import { UserLoginModel } from 'src/app/auth/models/auth.model';
-import { UserPermissionsModel } from 'src/app/auth/models/org.model';
-import { BreadCrumbMdl } from 'src/app/common/bradcrumb.model';
+import { userPermissionsclaims } from 'src/app/modules/auth/models/org.model';
+import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
+import { UserPermissionsModel } from 'src/app/modules/auth/models/org.model';
+import { BreadCrumbMdl } from 'src/app/common/shell/breadcrumb/bradcrumb.model';
 
 //#region ***** global states *******
 
@@ -27,7 +27,7 @@ export interface RightMenuStates {
   wsStatusComm: boolean;
 }
 
-// -- Menu 
+// -- Menu
 export enum MenuActions {
   InitialState = 'INIT_MENU_STORE',
   GetOp = 'GET_OPTIONS',
@@ -114,8 +114,8 @@ export interface StructureDataState {
   ActiveLog: boolean;
 }
 
-//#endregion 
- 
+//#endregion
+
 
 //#region *** generic ***
 

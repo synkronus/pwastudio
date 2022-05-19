@@ -7,7 +7,7 @@ import { take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { SubSink } from 'subsink';
 import { HttpClient } from '@angular/common/http';
-import { I18nService } from './i18n/i18n.service';
+import { I18nService } from './modules/i18n/i18n.service';
 
 const logger = new LoggerService('VersionCheck');
 @Component({

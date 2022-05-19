@@ -6,15 +6,16 @@ import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { ObservableStore } from '@codewithdan/observable-store';
-import { AuthStoreState, AuthStoreActions } from 'src/app/common/store-states';
 
-import { UserLoginModel } from 'src/app/auth/models/auth.model';
+import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
 import { MenuService } from 'src/app/services/menu.service';
 import { LocalStorageService } from '../local-storage.service';
 
 import { SafeUrl, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { USER_OBJ_CLAIMS } from 'src/app/shared/utils/constants';
 import { environment } from 'src/environments/environment';
+
+import { AuthStoreState, AuthStoreActions } from 'src/app/modules/store-states';
 
 @Injectable({
   providedIn: "root",

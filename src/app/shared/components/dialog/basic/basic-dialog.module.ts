@@ -10,7 +10,7 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGCustomModule } from 'src/app/shared/formly-types/ui-primeng.module';
-import { PRIMENG_MODULE } from 'src/app/shared/utils/primeng.modules';
+import { PRIMENG_MODULE } from 'src/app/modules/primeng.modules';
 
 @NgModule({
   imports: [

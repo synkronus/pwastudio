@@ -7,9 +7,8 @@ import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-import { I18nModule } from '../i18n/i18n.module';
-import { TranslateModule } from '@ngx-translate/core';
 import { marker } from '@biesbjerg/ngx-translate-extract-marker';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -18,10 +17,9 @@ import { marker } from '@biesbjerg/ngx-translate-extract-marker';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([ { path: 'login', component: LoginComponent,  data: { title: marker('Login') } } ]),
-    ButtonModule, 
+    ButtonModule,
     InputTextModule,
     PasswordModule,
-    I18nModule,
     TranslateModule
   ],
   declarations: [

@@ -26,7 +26,9 @@
               "src/favicon.ico",
               "src/assets/custom",
               "src/assets/layout/css",
-              "src/assets/theme/css"
+              "src/assets/theme/css",
+              "src/config/main.js",
+              "src/manifest.webmanifest"
             ],
             "tsConfig": "tsconfig.app.json",
             "styles": [
@@ -40,7 +42,9 @@
             ],
             "scripts": [
               "node_modules/quill/dist/quill.js"
-            ]
+            ],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -122,7 +126,8 @@
               "src/favicon.ico",
               "src/assets/custom",
               "src/assets/layout/css",
-              "src/assets/theme/css"
+              "src/assets/theme/css",
+              "src/manifest.webmanifest"
             ]
           }
         },

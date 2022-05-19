@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MenuService } from 'src/app/services/menu.service';
 import { SubSink } from 'subsink';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { UserLoginModel } from 'src/app/auth/models/auth.model';
+import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
 import { PagesComponent } from 'src/app/core/pages.component';
 
 @Component({

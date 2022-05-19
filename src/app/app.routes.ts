@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './modules/auth/login/login.component';
 
 const appRoutes : Routes = [
     { path: '', redirectTo: '/login',pathMatch : 'full'},

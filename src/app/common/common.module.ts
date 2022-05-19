@@ -1,32 +1,26 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HrefPreventDefaultDirective } from './directives/href-prevent-default.directive';
 import { HasClaimDirective } from './directives/has-claim.directive';
 import { AuthPage } from './directives/auth-page.directive';
-import { OverlayLoaderComponent } from './overlay-loader.component';
 import { OverlayLoaderInterceptor } from '../services/http/overlay-interceptor.service';
-import { PRIMENG_MODULE } from '../shared/utils/primeng.modules';
+import { ShellAppModule } from './shell/shell.module';
+import { SharedAppModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    PRIMENG_MODULE,
+    SharedAppModule,
+    ShellAppModule,
   ],
   declarations: [
     HrefPreventDefaultDirective,
     HasClaimDirective,
-    AuthPage,
-    OverlayLoaderComponent,
+    AuthPage
   ],
   exports: [
     HrefPreventDefaultDirective,
     HasClaimDirective,
-    AuthPage,
-    OverlayLoaderComponent
+    AuthPage
   ],
   providers: [
     {

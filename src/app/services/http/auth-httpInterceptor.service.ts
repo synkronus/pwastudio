@@ -10,11 +10,11 @@ import { Router } from "@angular/router";
 import { Observable, throwError } from "rxjs";
 import { catchError} from "rxjs/operators";
 import { AuthService } from "../auth/auth.service";
-import { UserLoginModel } from 'src/app/auth/models/auth.model';
+import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
 
 @Injectable()
 export class AuthHttpInterceptor implements HttpInterceptor {
-  
+
   private token :string ;
   private isLogIn :boolean = false ;
   private usrLgn: UserLoginModel ;
@@ -22,11 +22,11 @@ export class AuthHttpInterceptor implements HttpInterceptor {
     // private authService: AuthService, private router: Router,private http: HttpClient
   constructor(private injector: Injector) {
     this.authService.stateWithPropertyChanges.subscribe((state) => {
-        if (!!state && state.stateChanges.hasOwnProperty("authStatus")) 
+        if (!!state && state.stateChanges.hasOwnProperty("authStatus"))
           this.isLogIn = state.stateChanges.authStatus || false;
-        if (!!state && state.stateChanges.hasOwnProperty("token")) 
+        if (!!state && state.stateChanges.hasOwnProperty("token"))
           this.token = state.stateChanges.token || null;
-        if (!!state && state.stateChanges.hasOwnProperty("userLogin")) 
+        if (!!state && state.stateChanges.hasOwnProperty("userLogin"))
           this.usrLgn = state.stateChanges.userLogin || null;
       });
       this.token = this.authService.GetStateLoginOp("token") || null;
@@ -52,13 +52,13 @@ export class AuthHttpInterceptor implements HttpInterceptor {
       })
     );
   }
-  
+
  private JustLogOut(err,wr) {
    if(err  && (err.status == 401 || err.status == 422)){
      this.authService.SignOut();
      this.router.navigate(["/login"], { queryParams: {redirectUrl: this.router.routerState.snapshot.url || "" } });
    }
-    return throwError(() => err); 
+    return throwError(() => err);
   }
 
 

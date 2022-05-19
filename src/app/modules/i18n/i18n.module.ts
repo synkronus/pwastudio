@@ -5,8 +5,6 @@ import { CommonModule } from '@angular/common';
 import { LangSelectorComponent } from './lang-selector.component';
 import { FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     LangSelectorComponent
@@ -17,6 +15,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     DropdownModule
   ],
-  exports: [LangSelectorComponent]
+  exports: [LangSelectorComponent, TranslateModule]
 })
 export class I18nModule { }

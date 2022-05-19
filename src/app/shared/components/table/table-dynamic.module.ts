@@ -9,15 +9,15 @@ import { TableDynamicComponent } from './table-dynamic.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
-import { TruncatePipe } from '../../pipes/truncate.pipe';
+import { TruncatePipe } from '../../../common/pipes/truncate.pipe';
 
 @NgModule({
   imports: [
-    CommonModule, 
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ButtonModule, 
-    TableModule, 
+    ButtonModule,
+    TableModule,
     ToolbarModule,
     InputTextModule,
     MultiSelectModule,

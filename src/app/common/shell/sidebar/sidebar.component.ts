@@ -10,7 +10,7 @@ import { SubSink } from 'subsink';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { ScrollPanel } from 'primeng/scrollpanel';
-import { UserLoginModel } from 'src/app/auth/models/auth.model';
+import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
 
 @Component({
     selector: 'app-sidebar',
@@ -140,14 +140,14 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                 <a [href]="child.url||'#'" (click)="itemClick($event,child,i)" (mouseenter)="onMouseEnter(i)"
                    *ngIf="!child.routerLink" [ngClass]="child.styleClass"
                    [attr.tabindex]="!visible ? '-1' : null" [attr.target]="child.target">
-                     <i class="material-icons pi-fw" style="font-size:22px;color:#65656a;vertical-align: middle">{{child.md_icon}}</i> 
+                     <i class="material-icons pi-fw" style="font-size:22px;color:#65656a;vertical-align: middle">{{child.md_icon}}</i>
                     <span class="layout-menuitem-text">{{child.md_title}}</span>
                     <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="child.items"></i>
                 </a>
                 <a (click)="itemClick($event,child,i)" (mouseenter)="onMouseEnter(i)" *ngIf="child.routerLink"
                    [routerLink]="child.routerLink" routerLinkActive="active-menuitem-routerlink" [fragment]="child.fragment"
                    [routerLinkActiveOptions]="{exact: true}" [attr.tabindex]="!visible ? '-1' : null" [attr.target]="child.target">
-                    <i class="material-icons pi-fw" style="font-size:22px;color:#65656a;vertical-align: middle">{{child.ft_icon || child.md_icon}}</i> 
+                    <i class="material-icons pi-fw" style="font-size:22px;color:#65656a;vertical-align: middle">{{child.ft_icon || child.md_icon}}</i>
                     <span class="layout-menuitem-text">{{child.ft_title || child.md_title}}</span>
                     <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="child.items"></i>
                 </a>
