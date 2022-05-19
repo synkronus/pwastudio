@@ -1,0 +1,112 @@
+<p-confirmPopup [key]="'popup-categories'"></p-confirmPopup>
+
+<p-card header="{{objGrl.title}}" [style]="{'margin-bottom': '2em', 'width':'100%'}">
+  <ng-template pTemplate="header">
+  </ng-template>
+
+  <div class="cstm-card">
+        <div class="p-grid">
+            <div class="p-col-12 p-sm-12" style="margin-top: 10px;">
+                <p-toolbar styleClass="p-mb-5">
+                    <ng-template pTemplate="left" >
+                        <label for="search"></label>
+                        <input #inputBar type="text" id="search" pInputText size="35" placeholder="Buscar..."  style="width:auto;font-size: .8em !important;"
+                                [(ngModel)]="objFilter.contains"  (input)="dt.filterGlobal($event.target.value, 'contains')" >
+                    </ng-template>
+                    <ng-template pTemplate="right">
+                        <button pButton type="button"  icon="pi pi-plus" class="p-button-text p-button-raised"
+                            (click)="showMdlHandler(null,'new')"></button>
+                        <button pButton type="button"  icon="pi pi-filter-slash" class="p-button-text p-button-raised"
+                            (click)="dt.filterGlobal('', 'contains'); ClearTblCat(dt);" style="margin-left: 10px;"></button>
+                    </ng-template>
+                </p-toolbar>
+            </div>
+        </div>
+
+        <div class="p-grid" style="margin-top: -30px;">
+            <p-card style="width:100%">
+                <p-table #dt [value]="objGrl.List" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25, 50]"  styleClass="p-datatable-sm"
+                        [paginator]="true"  [filterDelay]="0" [globalFilterFields]="objGrl.filteringOptions" (onPage)="setPagination($event)" > <!-- [loading]="loading" -->
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th scope="col" pSortableColumn="id" [style]="{'width':'10%'}">{{'columns.id' | translate}}<p-sortIcon field="id"></p-sortIcon></th>
+                                <th scope="col" [style]="{'width':'17%'}">{{'columns.name' | translate}}<p-columnFilter [showOperator]="false"
+                                    type="text" field="nombre" display="menu" hideOnClear="true"></p-columnFilter></th>
+                                <th scope="col" [style]="{'width':'25%'}">{{'columns.description' | translate}}<p-columnFilter [showOperator]="false"
+                                    type="text" field="descripcion" display="menu" hideOnClear="true"></p-columnFilter></th>
+                                <th scope="col" [style]="{'width':'15%'}">{{'columns.items' | translate}}</th>
+                                <th scope="col" [style]="{'width':'15%'}">{{'columns.status' | translate}} <p-columnFilter [showOperator]="false"
+                                    type="text" field="estado" display="menu" hideOnClear="true"></p-columnFilter></th>
+                                <th scope="col" [style]="{'width':'15%'}">{{'columns.actions' | translate}}</th></tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-row>
+                            <tr>
+                                <td [style]="{'width':'10%'}">{{row.id}}</td>
+                                <td [style]="{'width':'17%'}">{{row.nombre}} </td>
+                                <td [style]="{'width':'25%'}">{{row.descripcion}}</td>
+                                <td [style]="{'width':'15%'}">
+                                    <button pButton class="p-button-sm p-button-rounded" style="margin-top: 5px;height: 25px;"
+                                    type="button" label="{{ row.items.length }}" (click)="CategoryItemsMdl(row)"></button>
+                                </td>
+                                <td [style]="{'width':'15%'}">
+                                    {{row.estado ? 'Activo' : 'Inactivo'}}
+                                </td>
+                                <td [style]="{'width':'15%', 'padding':'0px'}">
+                                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary p-button-text"  pTooltip="Editar" tooltipPosition="top"
+                                        styleClass="p-button-sm" (click)="showMdlHandler(row,'edit')"></button>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr><td colspan="6">No se encontraron registros.</td></tr>
+                        </ng-template>
+                        <ng-template pTemplate="summary">
+                            <div class="p-d-flex p-ai-center p-jc-between">
+                                Total Registros : {{objGrl.List ? objGrl.List.length : 0 }}
+                            </div>
+                        </ng-template>
+                </p-table>
+            </p-card>
+        </div>
+  </div>
+
+</p-card>
+
+<p-dialog [(visible)]="objMdl.showDialog" [style]="{width: '800px'}" [header]="objGrl.mdlTitle" [modal]="true" styleClass="p-fluid"
+[contentStyle]="{ 'overflow-y': 'auto', 'overflow-x': 'hidden', 'max-height': '70vh', 'min-height': '200px'}">
+    <ng-template pTemplate="content" closable="false">
+        <div class="p-grid frm-dialog card">
+            <form  [formGroup]="objMdl.form"  autocomplete="off">
+                <div class="p-grid ">
+                    <div class="p-field p-sm-1">
+                        <label for="id" class="required">{{'columns.id' | translate}}</label>
+                        <input type="text" pInputText id="id" formControlName="id"  />
+                      </div>
+                    <div class="p-field p-sm-4" >
+                        <label for="nombre" class="required">{{'columns.name' | translate}}</label>
+                        <input id="nombre" pInputTextarea  formControlName="nombre"  required rows="1" cols="40" />
+                        <small *ngIf="objMdl.form.controls.nombre.invalid && (objMdl.form.controls.nombre.dirty || objMdl.form.controls.nombre.touched)"
+                            class="p-error">Valor requerido.</small>
+                    </div>
+                    <div class="p-field p-sm-4" >
+                        <label for="descripcion" class="required">{{'columns.description' | translate}}</label>
+                        <input id="descripcion" pInputTextarea  formControlName="descripcion"  required rows="1" cols="40" />
+                        <small *ngIf="objMdl.form.controls.descripcion.invalid && (objMdl.form.controls.descripcion.dirty || objMdl.form.controls.descripcion.touched)"
+                            class="p-error">Valor requerido.</small>
+                    </div>
+                    <div class="p-field p-sm-3" style="text-align: center;">
+                        <label for="estado" class="required">{{'columns.status' | translate}} </label><br>
+                        <p-dropdown [options]="objGrl.statuses" formControlName="estado" optionLabel="label"
+                            optionValue="value">
+                        </p-dropdown>
+                      </div>
+                </div>
+            </form>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Guardar" icon="pi pi-check" class="p-button-text p-button-rounded p-button-raised" (click)="saveData()" [disabled]="objMdl.form.invalid"></button>
+        <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text p-button-rounded p-button-raised" (click)="showDialog(false)" ></button>
+    </ng-template>
+</p-dialog>

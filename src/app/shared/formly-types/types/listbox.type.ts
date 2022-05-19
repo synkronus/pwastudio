@@ -1,0 +1,28 @@
+import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
+import { Dropdown } from 'primeng/dropdown';
+import { PrimengComponentType } from './prime-base.type';
+
+@Component({
+  selector: 'primeng-listbox',
+  template: `
+    <p-listbox
+      [options]="to.options | async"
+      [disabled]="to.disabled"
+      (onChange)="to.onChange && to.onChange(field, $event)"
+      (onDblClick)="to.onDblClick && to.onDblClick(field, $event)"
+      (onClick)="to.onClick && to.onClick(field, $event)"
+      [formControl]="formControl"
+      [formlyAttributes]="field"
+    >
+    </p-listbox>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ListboxPrmNg extends PrimengComponentType {
+  @ViewChild(Dropdown) dropdown!: Dropdown;
+  defaultOptions = {
+    templateOptions: {
+      options: [],
+    },
+  };
+}

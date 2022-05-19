@@ -1,0 +1,45 @@
+<p-toast key="tst-lgn" position="top-right"></p-toast>
+<div class="login-body" [ngStyle]="{'background': 'url(' + urlBackImg + ') no-repeat 0 0 / cover'}">
+    <div class="card login-panel ui-fluid">
+        <div class="login-panel-content" style="margin-top: 260px;">
+            <form [formGroup]="loginForm" (ngSubmit)="SignInUser(loginForm)" autocomplete="off">
+                <div class="p-grid">
+
+                    <div class="p-col-12 logo-container" style="margin-bottom: 50px;text-align: -webkit-center;">
+                    </div>
+                    <div class="p-col-12 username-container">
+                        <label for="float-input">{{'login.username' | translate}}</label>
+                        <div class="login-input">
+                            <input id="float-input" #unm type="text" pInputText formControlName="username"
+                                autocomplete="off" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="p-col-12 password-container">
+                        <label for="float-input1">{{'login.password' | translate}}</label>
+                        <div class="login-input">
+                            <input id="float-input1" pPassword #pwd type="password" formControlName="password"
+                                autocomplete="off" maxlength="50" />
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-sm-7 p-md-7 rememberme-container btn-style">
+                        <button pButton type="button" label="{{'login.forgotPassword' | translate}}" icon="pi pi-user-edit" iconPos="left"
+                            class="p-button-text p-button-raised"></button>
+
+                    </div>
+
+                    <div class="p-col-12 p-sm-5 p-md-5 forgetpassword-container btn-style">
+                        <button pButton type="submit" label="{{'login.login' | translate}}" icon="pi pi-sign-in" iconPos="left"
+                            class="p-button-text p-button-raised" [disabled]="loginForm.invalid || isLoading"></button>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="p-col-12 ">
+                    <label for="float-input">{{'language.title' | translate}}</label>
+                    <app-lang-selector></app-lang-selector>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

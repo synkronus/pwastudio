@@ -1,0 +1,17 @@
+<p-card header="{{objTbl.title}}" [style]="{'margin-bottom': '2em', 'width':'100%'}">
+  <div class="cstm-card">
+    <div class="p-grid" style="margin-top: -20px;">
+        <p-card style="width:100%">
+           <app-table-dynamic
+           [objDefinitions]="objTbl"
+           (onEditItem)="onEditItemHandler($event)"
+        ></app-table-dynamic>
+        </p-card>
+    </div>
+  </div>
+</p-card>
+
+<app-basic-dialog [config]="objMdl" (onSave)="onSaveLocal($event)">
+</app-basic-dialog>
+
+

@@ -1,0 +1,74 @@
+  <div class="p-grid">
+    <div class="p-col-12 p-sm-12" style="margin-top: 10px;">
+      <p-toolbar style="height: fit-content;">
+          <ng-template pTemplate="left">
+            <span class="p-input-icon-right p-mr-3 p-d-flex p-ai-center">
+                <i class="pi pi-search"></i>
+                <input #inptSearch icon type="text" id="search" pInputText placeholder="Buscar"
+                    (input)="dtDynamic.filterGlobal($event.target.value, 'contains')">
+            </span>
+            <p-multiSelect *ngIf="objDefinitions.showMultiSelectCols" [options]="objDefinitions.cols"
+                [(ngModel)]="selectedLocalColumns" optionLabel="header" selectedItemsLabel="{0} columnas seleccionadas"
+                resetFilterOnHide="true" class="p-mr-3 p-d-flex p-ai-center"></p-multiSelect>
+            <label for="search"></label>
+          </ng-template>
+          <ng-template pTemplate="right">
+              <div class="p-d-flex">
+                  <button pButton type="button" icon="pi pi-plus" class="p-button-text p-button-raised p-mr-3 btnToolBar"
+                      pTooltip="Crear" tooltipPosition="bottom" (click)="onEditRow(null,'Crear')"></button>
+                  <button pButton type="button" icon="pi pi-filter-slash" class="p-button-text p-button-raised p-mr-3 btnToolBar"
+                      pTooltip="Limpiar" tooltipPosition="bottom"
+                      (click)="dtDynamic.filterGlobal('', 'contains'); clearTbl(dtDynamic);"></button>
+              </div>
+          </ng-template>
+      </p-toolbar>
+    </div>
+  </div>
+
+<p-table #dtDynamic dataKey="id"
+    [value]="objDefinitions.dataSource"
+    [rows]="10"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [columns]="objDefinitions.showMultiSelectCols ? selectedLocalColumns : objDefinitions.cols"
+    styleClass="p-datatable-sm p-datatable-gridlines p-datatable-striped"
+    [paginator]="true"
+    [filterDelay]="3"
+    [globalFilterFields]="objDefinitions.filteringOptions"
+    responsiveLayout="scroll">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th  class="minWidthHeaderId" scope="col" [id]="id" pSortableColumn="id">{{'#'}}
+                <p-sortIcon field="id"></p-sortIcon>
+            </th>
+            <th class="minWidth" scope="col" *ngFor="let col of columns"
+                pSortableColumn="{{ col.header }}">{{ col.header | truncate : 13 : true }}
+                <p-columnFilter style="color: white;"
+                    [showOperator]="false" type="text"
+                    field="{{col.field}}"
+                    display="menu"
+                    hideOnClear="true" [id]="col.field"
+                ></p-columnFilter>
+            </th>
+            <th scope="col" [style]="{'width':'8%'}">{{'columns.actions' | translate}}</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-index ="i" let-columns="columns">
+        <tr>
+            <td > {{ i+1 }}</td>
+            <td *ngFor="let col of columns"> {{ rowData[col.field] }}</td>
+            <td style="text-align: center;">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary p-button-text"
+                    pTooltip="Edit" tooltipPosition="top" styleClass="p-button-sm"
+                    (click)="onEditRow(rowData,'Edit')"></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns="columns">
+        <tr>
+            <td colspan="10">{{'columns.emptyBody' | translate}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">{{'columns.totalRecords' | translate}} : {{ dtDynamic.totalRecords }} </div>
+    </ng-template>
+</p-table>

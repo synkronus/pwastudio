@@ -1,0 +1,174 @@
+
+  .ui-float-label>label {
+    top: 10% !important;
+  }
+
+  .layout-right-panel .ui-tabview.ui-tabview-top .ui-tabview-panels .ui-tabview-panel{
+    width: 100%;
+    overflow-y: scroll;
+    height: 90vh;
+  }
+
+  input, select, textarea {
+    background: #ffffff !important;
+    border-width: 0 0 1px !important;
+    padding: 0.5rem 0.5rem !important;
+    font-size: .9em !important;
+    border-color: #bdbdbd !important;
+    border-style: solid !important;
+    transition: border-color .3s !important;
+    border-radius: 0 !important;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
+    color: #495057;
+  }
+
+  .p-dropdown, .p-multiselect {
+    background: #ffffff !important;
+    border-width: 0 0 1px !important;
+    font-size: .9em !important;
+    border-color: #bdbdbd !important;
+    border-style: solid !important;
+    transition: border-color .3s !important;
+    border-radius: 0 !important;
+    width: 100%;
+  }
+
+  .p-inputtext{
+    font-size: .9em !important;
+  }
+
+  .p-breadcrumb {
+    padding: 10px !important;
+    margin: 5px 8px 0px !important;
+  }
+
+  .ui-dropdown {
+    display: block !important;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    min-width: 12.5em;
+  }
+
+  .ui-treenode-connector-line {
+    margin: 0px -1px 0px 0px!important;
+    padding: 0.1px!important;
+  }
+
+  .p-calendar .p-datepicker {
+    min-width: 300px !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5F5F5;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+      background: linear-gradient(left, #22ADD4, #1E98BA);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+      background: #fff;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.5);
+      /* border-radius: 10px; */
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      /* background: linear-gradient(left, #fff, #e4e4e4);*/
+      border: 1px solid #aaa;
+  }
+  .p-autocomplete-dd:focus .p-autocomplete-dropdown:focus {
+      outline: none;
+  }
+
+  .p-autocomplete-dd .p-autocomplete-dropdown {
+    background: 0 0 !important;
+    border-width: 0 0 1px !important;
+    color: grey !important;
+    font-size: .9em !important;
+    border-color: #bdbdbd !important;
+    border-style: solid !important;
+    transition: border-color .3s !important;
+  }
+
+  .p-component {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: .9rem;
+      font-weight: normal;
+  }
+  .p-dropdown:not(p-disabled).p-focus {
+    box-shadow: 0 0 0 0.1rem #ced4da !important;
+  }
+
+
+  input:focus, textarea:focus {
+    outline: none !important;
+    /* background-color: #ced4da !important;
+    border: 1px solid #ced4da !important; */
+    box-shadow: 0 0 0 0rem #ced4da !important;
+  }
+
+  .p-inputtext:enabled:focus {
+    box-shadow: 0 0 0 0rem #ced4da !important;
+  }
+  .p-button:focus {
+    box-shadow: 0 0 0 0rem #ced4da !important;
+  }
+
+  .driverLicExpCal {
+      height: 210px;
+      width: 100px;
+  }
+
+  .p-calendar .p-datepicker {
+    min-width: 200px !important;
+  }
+  .p-datepicker table td > span {
+    width: 100% !important;
+    height: 100% !important;
+    font-size: 12px !important;
+  }
+    .p-datepicker table {
+    font-size: 12px !important;
+  }
+   .p-datepicker table td {
+    padding: 0.2rem !important;
+  }
+  .p-datepicker .p-datepicker-header {
+    padding: 0.2rem !important;
+  }
+.p-inputswitch {
+    height: 1.2rem !important;
+}
+
+ .p-dropdown .p-dropdown-clear-icon {
+  right: 2rem !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+html, body { height: 100%; }
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
+  }

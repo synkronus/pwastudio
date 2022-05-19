@@ -1,0 +1,16 @@
+.titulo {
+  font-size: 2em;
+  color: darken(#407ec9, 28%);
+  font-family: 'Poiret One', 'Roboto', sans-serif;
+  margin-bottom: 0.5em;
+  text-shadow: 0px 1px 1px #fff;
+}
+
+formly-field {
+  display: block;
+  margin: 8px 0;
+}
+
+form .mat-raised-button {
+  margin-right: 8px;
+}

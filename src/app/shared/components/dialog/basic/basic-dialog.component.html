@@ -1,0 +1,31 @@
+<p-dialog
+  [header]="config.title"
+  [modal]="true"
+   styleClass="p-fluid"
+  [style]="{ width: config.modalConfig.width }"
+  [(visible)]="config.showDialog"
+  [contentStyle]="{ 'overflow-y': 'auto', 'overflow-x': 'hidden', 'max-height': '80vh', 'min-height': '150px', 'height': config.modalConfig.height }"
+  (onShow)="onShowDialog($event)"
+  (onHide)="onHideDialog($event)"
+>
+  <div class="contenido">
+      <div  class="p-fluid card" style="margin-top: 5px;">
+        <form [formGroup]="form" >
+          <formly-form
+            [form]="form"
+            [model]="model"
+            [fields]="config?.fields">
+          </formly-form>
+        </form>
+    </div>
+  </div>
+
+  <p-footer >
+    <button pButton pRipple label="Guardar" icon="pi pi-check" type="submit"
+        class="p-button-text p-button-rounded p-button-raised" (click)="onSubmit()" [disabled]="!form.valid"></button>
+    <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text p-button-rounded p-button-raised"
+        type="reset" (click)="config.showDialog=false" ></button>
+  </p-footer>
+
+</p-dialog>
+

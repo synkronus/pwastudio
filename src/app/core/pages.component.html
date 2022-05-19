@@ -1,0 +1,23 @@
+<p-toast key="gbl-toast" [baseZIndex]="1100"></p-toast>
+<div class="layout-wrapper" [ngClass]="{'layout-horizontal': menuMode === 'horizontal',
+    'layout-overlay': menuMode === 'overlay',
+    'layout-static': menuMode === 'static',
+    'layout-slim': menuMode === 'slim',
+    'layout-menu-light': lightMenu === true,
+    'layout-menu-dark': lightMenu === false,
+    'layout-overlay-active': overlayMenuActive,
+    'layout-mobile-active': staticMenuMobileActive,
+    'layout-static-inactive': staticMenuDesktopInactive,
+    'layout-rtl': isRTL}" [class]="topbarColor">
+    <app-header></app-header>
+    <app-sidebar [reset]="resetMenu"></app-sidebar>
+    <div class="layout-main">
+        <div class="layout-content custom-scrollbar">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="layout-footer">
+        <app-footer></app-footer>
+    </div>
+    <div class="layout-content-mask"></div>
+</div>

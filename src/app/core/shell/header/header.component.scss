@@ -1,0 +1,15 @@
+::ng-deep .layout-wrapper .layout-topbar .topbar-menu .user-profile {
+    padding: 0px !important;
+}
+::ng-deep .layout-wrapper .layout-topbar .topbar-menu > li > a > img {
+    width: 36px;
+    margin: 4px 0px 0px 10px !important;
+}
+
+::ng-deep .layout-wrapper .layout-topbar .topbar-menu > li > a .layout-profile-userinfo {
+    text-align: right !important;
+}
+
+.lang-selector {
+    margin-top: 8px;
+}

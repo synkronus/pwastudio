@@ -1,0 +1,34 @@
+<div class="layout-topbar">
+
+    <a href="javascript:void(0);" class="layout-menu-button layout-topbar-icon" (click)="onMenuButtonClick($event)">
+        <em class="pi pi-bars"></em>
+    </a>
+
+    <ul class="topbar-menu">
+        <!-- User Options -->
+        <li class="user-profile" [ngClass]="{'active-topmenuitem fadeInDown': topbarUserMenuActive}">
+            <a href="javascript:void(0);" (click)="onTopbarUserMenuButtonClick($event)">
+                <div class="layout-profile-userinfo">
+                    <span class="layout-profile-name">{{ usrLgn?.nombre_completo }}</span>
+                    <span class="layout-profile-role">{{ usrLgn?.profesion }}</span>
+                </div>
+                <img src="assets/custom/images/avatar-default.png" alt="alt-layout" width="100%" height="100%"/>
+            </a>
+            <ul class="fadeInDown">
+                <li>
+                    <a href="javascript:void(0);">
+                        <em class="pi pi-fw pi-cog"></em>
+                        <span translate>header.settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" (click)="LogOut()">
+                        <em class="pi pi-fw pi-bell"></em>
+                        <span translate>header.logout</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>

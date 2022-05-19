@@ -1,0 +1,166 @@
+{
+  "primeng": {
+    "startsWith": "Inicia con",
+    "contains": "Contiene",
+    "notContains": "No contiene",
+    "endsWith": "Termina con",
+    "equals": "Igual",
+    "notEquals": "No igual",
+    "noFilter": "Sin filtro",
+    "lt": "Menor que",
+    "lte": "Menor que o igual a",
+    "gt": "Mayor que",
+    "gte": "Mayor que o igual a",
+    "is": "Es",
+    "isNot": "No es",
+    "before": "Antes",
+    "after": "Después",
+    "dateIs": "Fecha es",
+    "dateIsNot": "Fecha no es",
+    "dateBefore": "Fecha es antes",
+    "dateAfter": "Fecha es después",
+    "clear": "Limpiar",
+    "apply": "Aplicar",
+    "matchAll": "Concidir con todo",
+    "matchAny": "Coincidir con cualquier",
+    "addRule": "Agregar regla",
+    "removeRule": "Remover regla",
+    "accept": "Si",
+    "reject": "No",
+    "choose": "Elegir",
+    "upload": "Subir",
+    "cancel": "Cancelar",
+    "dayNames": [
+      "Domingo",
+      "Lunes",
+      "Martes",
+      "Miércoles",
+      "Jueves",
+      "Viernes",
+      "Sábado"
+    ],
+    "dayNamesShort": [
+      "Dom",
+      "Lun",
+      "Mar",
+      "Mie",
+      "Jue",
+      "Vie",
+      "Sab"
+    ],
+    "dayNamesMin": [
+      "Do",
+      "Lu",
+      "Ma",
+      "Mi",
+      "Ju",
+      "Vi",
+      "Sa"
+    ],
+    "monthNames": [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    ],
+    "monthNamesShort": [
+      "Ene",
+      "Feb",
+      "Mar",
+      "Abr",
+      "May",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "dateFormat": "mm/dd/yy",
+    "firstDayOfWeek": 0,
+    "today": "Hoy",
+    "weekHeader": "Se",
+    "weak": "Débil",
+    "medium": "Medio",
+    "strong": "Fuerte",
+    "passwordPrompt": "Ingresa una contraseña",
+    "emptyMessage": "No se encontraron resultados",
+    "emptyFilterMessage": "No se encontraron resultados"
+  },
+  "language": {
+    "title": "Idioma",
+    "es-LA": "Español",
+    "en-US": "Inglés"
+  },
+  "header": {
+    "settings": "Configuración",
+    "logout": "Cerrar sesión"
+  },
+  "actions": {
+    "search": "Buscar",
+    "create": "Crear",
+    "edit": "Editar",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "columns": {
+    "id": "Id",
+    "name": "Nombre",
+    "description": "Descripción",
+    "status": "Estado",
+    "actions": "Acciones",
+    "items": "Elementos",
+    "code": "Código",
+    "emptyBody": "No se encontraron registros.",
+    "totalRecords": "Total Registros"
+  },
+  "filters": {
+    "equals": "Igual",
+    "notEquals": "No igual",
+    "startsWith": "Inicia con",
+    "contains": "Contiene",
+    "notContains": "No contiene",
+    "endsWith": "Termina con"
+  },
+  "stats": {
+    "total": "Total Registros",
+    "noRecords": "No hay datos para mostrar"
+  },
+  "validations": {
+    "required": "Valor requerido",
+    "characterRange": "Rango de caracteres entre minLength and maxLength"
+  },
+  "messages": {
+    "error": "Operation fallida",
+    "successCreation": "Creación exitosa",
+    "successEdition": "Edición exitosa"
+  },
+  "interestPoint": {
+    "title": "Punto de interés"
+  },
+  "login": {
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "forgotPassword": "Olvidé contraseña",
+    "login": "Ingresar"
+  },
+  "menu": {
+    "home": {
+      "title": "Inicio"
+    },
+    "operations": {
+      "title": "Operaciones",
+      "routes": "Rutas",
+      "category": "Categorias"
+    }
+  }
+}

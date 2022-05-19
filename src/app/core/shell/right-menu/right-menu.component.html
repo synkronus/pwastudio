@@ -1,0 +1,95 @@
+<div class="layout-right-panel" [ngClass]="{'layout-right-panel-active': rightPanelMenuActive}" >
+    <p-tabView>
+        <p-tabPanel header="Messages">
+              <div class="status-title" style="margin: 10px;">
+                  <span style="vertical-align: text-top;">Sincronizar notificactiones</span>
+                  <em class="pi pi-cloud-upload" style="font-size: 24px;cursor: pointer;color:green" pTooltip="Sincronizar..." (click)="syncMsg();" (onKeyDown)="syncMsg();"></em>
+              </div>
+              <p-card >
+                  <div *ngFor="let item of notifications">
+                      <div class="messages-title">
+                          <span><em class="pi pi-angle-double-right" style="font-size: 18px;vertical-align: middle;" ></em>
+                              {{ item?.createAt  | momentPipe : 'MMMM DD, YYYY' | titlecase}}</span>
+                      </div>
+                      <div class="messages-content ui-g">
+                          <span class="time ui-g-3" style="padding: 3px 0px ;" >
+                              <!-- [ngClass]="(item?.status =='pending') ? 'pi pi-minus':' pi pi-check' "  -->
+                              <em class="pi pi-clock" style="font-size: 18px;vertical-align: middle;" ></em>{{ item?.createAt  | momentPipe : 'hh:mm A'  }} <br>
+                              <em *ngIf="item?.event_status =='pending'" class="pi pi-spin pi-replay" style="font-size: 20px;cursor: pointer;color: yellowgreen;"  pTooltip="procesando"></em>
+                              <em *ngIf="item?.event_status =='created'" class="pi pi-download" style="font-size: 18px;cursor: pointer;"  pTooltip="Descargar" ></em> 
+                              <em *ngIf="item?.event_status =='created'" class="pi pi-external-link" style="font-size: 18px;cursor: pointer;margin-left: 5px;"  pTooltip="Abrir Ventana" ></em> 
+                              <em *ngIf="item?.event_status =='failed'" class="pi pi-times-circle" style="font-size: 18px;cursor: pointer;margin-left: 5px; color:red" ></em> 
+                          </span>
+                          <div *ngIf="item?.event_status !=='failed'" class="message-1 ui-g-9" style="padding-top: 0px;" >{{ item?.type_msg }}</div>
+                          <div *ngIf="item?.event_status =='failed'" class="message-1 ui-g-9" style="color: red;padding-top: 0px;">{{ item?.type_msg }} <br> Servicio no disponible.</div>
+                      </div>
+                  </div>
+              </p-card>
+  
+  
+        </p-tabPanel>
+  
+        <p-tabPanel header="Status">
+             
+          <div class="status-title">
+              <span style="vertical-align: text-top;">Estado Notificaciones</span> 
+              <em class="pi pi-wifi" [style.color]=" wsStatusComm ? 'forestgreen': 'red' "></em>
+            </div>
+  
+            <div class="status-title">
+                <span>Datacenter Status</span>
+                <em class="pi pi-download"></em>
+            </div>
+            <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate">
+                <p-progressBar [value]="88" [showValue]="false"></p-progressBar>
+                <div class="ui-progressbar-label"></div>
+            </div>
+            <div class="status-content">
+                <!-- <span class="percentage-1">65</span><span class="percentage-2">/88</span> Servers Online -->
+            </div>
+  
+            <div class="status-title">
+                <span>Performance Status</span>
+                <em class="pi pi-clock"></em>
+            </div>
+            <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate">
+                <p-progressBar [value]="65" [showValue]="false"></p-progressBar>
+                <div class="ui-progressbar-label"></div>
+            </div>
+            <div class="status-content">
+                <!-- <span class="percentage-1">4</span> -->
+                <span class="percentage-2">/5</span> 
+                Active Pipeline
+            </div>
+  
+            <div class="status-title">
+                <span>Drivers on Way</span>
+                <em class="pi pi-cloud"></em>
+            </div>
+            <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate">
+                <p-progressBar [value]="35" [showValue]="false"></p-progressBar>
+                <div class="ui-progressbar-label"></div>
+            </div>
+            <div class="status-content">
+                <!-- <span class="percentage-1">12</span> -->
+                <span class="percentage-2">/40</span> 
+                Drivers
+            </div>
+  
+            <div class="status-title">
+                <span>Datacenter Status</span>
+                <em class="pi pi-map-marker"></em>
+            </div>
+            <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate">
+                <p-progressBar [value]="85" [showValue]="false"></p-progressBar>
+                <div class="ui-progressbar-label"></div>
+            </div>
+            <div class="status-content">
+                <!-- <span class="percentage-1">65</span><span class="percentage-2">/88</span>  -->
+                Servers Online
+            </div>
+        </p-tabPanel>
+  
+    </p-tabView>
+  </div>
+  

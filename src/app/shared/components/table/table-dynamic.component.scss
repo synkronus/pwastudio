@@ -1,0 +1,39 @@
+.aBus {
+  cursor: pointer !important;
+  color: #407ec9;
+  border-bottom: solid 1px #407ec9;
+}
+
+.datatable-buttons {
+  margin-bottom: 0;
+}
+
+.datatable-header {
+
+  margin-bottom: 0.7em;
+
+  .table-export {
+    text-align: right;
+
+    button {
+      display: inline-block;
+    }
+  }
+}
+.numero {
+  text-align: end;
+}
+
+.title {
+  color: white;
+  height: 16px;
+} 
+
+.minWidth {
+  min-width: 170px;
+}
+
+.btnToolBar {
+  background: white;
+  color: #136444;
+}

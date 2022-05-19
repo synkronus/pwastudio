@@ -1,0 +1,34 @@
+import {
+  Component,
+  ChangeDetectionStrategy,
+  AfterViewInit,
+  OnDestroy,
+  ViewChild,
+  OnInit,
+} from '@angular/core';
+import { ColorPicker } from 'primeng/colorpicker';
+import { PrimengComponentType } from './prime-base.type';
+
+@Component({
+  selector: 'primeng-colorPicker',
+  template: `
+    <p-colorPicker
+      [style]="{ display: 'block', width: '60px' }"
+      [tabindex]="to.tabindex || null"
+      [disabled]="to.disabled || false"
+      [required]="to.required || false"
+      [format]="to.format || 'hex'"
+      [inline]="to.inline || false"
+      (onChange)="to.onChange && to.onChange(field, $event)"
+      (onShow)="to.onShow && to.onShow(field, $event)"
+      (onHide)="to.onHide && to.onHide(field, $event)"
+      [formControl]="formControl"
+      [formlyAttributes]="field"
+    >
+    </p-colorPicker>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ColorPickerPrmNg extends PrimengComponentType {
+  @ViewChild(ColorPicker) picker!: ColorPicker;
+}
