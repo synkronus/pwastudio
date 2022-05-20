@@ -1,8 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
-import { PRIMENG_MODULE } from '../../modules/primeng.modules';
 
 import { FormlyCustomMessages } from './config/formly-custom-messages';
 import { AutocompletePrimeNgType } from './types/autocomplete.type';
@@ -28,6 +28,7 @@ import { CalendarPrmNg } from './types/calendar.type';
 import { FormlyConfigModule } from './config/config.module';
 import { EditorPrmNg } from './types/editor.type';
 import { TreeSelectPrmNgModule } from './types/treeselect/treeselect.module';
+import { PRIMENG_MODULE } from 'src/app/shared/primeng.modules';
 
 export const FormlyCustomTypes = [
   { name: 'string', extends: 'input' },

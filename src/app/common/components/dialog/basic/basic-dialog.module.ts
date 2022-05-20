@@ -9,8 +9,8 @@ import { AccordionModule } from 'primeng/accordion';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { FormlyModule } from '@ngx-formly/core';
-import { FormlyPrimeNGCustomModule } from 'src/app/shared/formly-types/ui-primeng.module';
-import { PRIMENG_MODULE } from 'src/app/modules/primeng.modules';
+import { PRIMENG_MODULE } from 'src/app/shared/primeng.modules';
+import { FormlyPrimeNGCustomModule } from '../../formly-types/ui-primeng.module';
 
 @NgModule({
   imports: [

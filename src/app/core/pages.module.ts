@@ -4,14 +4,12 @@ import { PagesComponent } from './pages.component';
 import { PAGES_ROUTES } from './pages.routes';
 import { ShellAppModule } from '../common/shell/shell.module';
 import { CommonAppModule } from '../common/common.module';
-import { SharedAppModule } from '../shared/shared.module';
+import { SharedAppModule } from '../shared/shared-app.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CommonAppModule,
-    ShellAppModule,
-    SharedAppModule,
     PAGES_ROUTES,
 ],
 declarations: [

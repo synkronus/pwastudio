@@ -1,7 +1,7 @@
 import { TranslateService } from '@ngx-translate/core';
 import { Component,  Input, Output, EventEmitter, ViewChild, OnInit } from '@angular/core';
 import { intersectionWith, isEqual } from 'lodash';
-import UnSubscribe from '../../utils/unsubscribe';
+import UnSubscribe from 'src/app/shared/constants/unsubscribe';
 
 @Component({
   selector: 'app-table-dynamic',

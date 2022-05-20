@@ -9,7 +9,6 @@ import { SubSink } from 'subsink';
 import { HttpClient } from '@angular/common/http';
 import { I18nService } from './modules/i18n/i18n.service';
 
-const logger = new LoggerService('VersionCheck');
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -70,11 +69,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.versionService.initStore('?$%&xYz123abc$%');
-    if (environment.production && environment.versionCheck) {
-      this.initVersionCheck(`/version.json`);
+    if (environment.production) {
+      LoggerService.enableProductionMode();
+      (environment.versionCheck) ?? this.initVersionCheck(`/version.json`);
     }
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
     this.translate.get('primeng').subscribe(res => this.config.setTranslation(res));
+
   }
 
 }

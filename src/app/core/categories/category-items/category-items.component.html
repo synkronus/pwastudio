@@ -11,13 +11,13 @@
                 <div class="p-field p-sm-3" >
                     <label for="nombre" class="required">{{'columns.name' | translate}}</label>
                     <input id="nombre" pInputTextarea  formControlName="nombre"  required rows="1" cols="40" />
-                    <small *ngIf="objGrb.form.controls.nombre.invalid && (objGrb.form.controls.nombre.dirty || objGrb.form.controls.nombre.touched)" 
+                    <small *ngIf="objGrb.form.controls.nombre.invalid && (objGrb.form.controls.nombre.dirty || objGrb.form.controls.nombre.touched)"
                         class="p-error">Valor requerido.</small>
                 </div>
                 <div class="p-field p-sm-3" >
                     <label for="descripcion" class="required">{{'columns.description' | translate}}</label>
                     <input id="descripcion" pInputTextarea  formControlName="descripcion"  required rows="1" cols="40" />
-                    <small *ngIf="objGrb.form.controls.descripcion.invalid && (objGrb.form.controls.descripcion.dirty || objGrb.form.controls.descripcion.touched)" 
+                    <small *ngIf="objGrb.form.controls.descripcion.invalid && (objGrb.form.controls.descripcion.dirty || objGrb.form.controls.descripcion.touched)"
                         class="p-error">Valor requerido.</small>
                 </div>
                 <div class="p-field p-sm-2" >
@@ -29,15 +29,15 @@
                     <p-inputSwitch formControlName="estado"> </p-inputSwitch>
                 </div>
                 <div class="p-field p-sm-2" style="text-align:right;">
-                    <button pButton type="button"  icon="pi pi-check-circle" class="p-button-text p-button-raised"  pTooltip="Añadir" tooltipPosition="top" 
+                    <button pButton type="button"  icon="pi pi-check-circle" class="p-button-text p-button-raised"  pTooltip="Añadir" tooltipPosition="top"
                          style="margin-right: 5px; margin-top: 15px;" (click)="saveData()" ></button>
-                    <button pButton type="button" style="margin-top: 15px;"  icon="pi pi-times-circle" class="p-button-text p-button-raised"  pTooltip="Cancelar" tooltipPosition="top" 
-                    (click)="renderForm([],false)"></button>
+                    <button pButton type="button" style="margin-top: 15px;"  icon="pi pi-times-circle" class="p-button-text p-button-raised"  pTooltip="Cancelar" tooltipPosition="top"
+                    (click)="renderForm(null,false)"></button>
                 </div>
             </div>
         </form>
 
-        
+
         <p-table #dt [value]="objGrb.localCategoryDT.categoryItemsList" dataKey="id" styleClass="p-datatable-sm" [scrollable]="true" scrollHeight="250px" > <!-- [loading]="loading" -->
                 <ng-template pTemplate="header">
                     <tr>
@@ -58,7 +58,7 @@
                             {{row.estado ? 'Activo' : 'Inactivo'}}
                         </td>
                         <td [style]="{'width':'15%', 'padding':'0px'}">
-                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary p-button-text" pTooltip="Editar" tooltipPosition="top" 
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary p-button-text" pTooltip="Editar" tooltipPosition="top"
                                 styleClass="p-button-sm" (click)="renderForm(row,true)"></button>
                         </td>
                     </tr>
@@ -67,7 +67,7 @@
                     <tr><td colspan="6">No se encontraron registros.</td></tr>
                 </ng-template>
         </p-table>
-        
+
     </p-card>
 </div>
 <p-footer class="cls-ftr-rght">

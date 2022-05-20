@@ -31,12 +31,12 @@
                             <tr>
                                 <th scope="col" pSortableColumn="id" [style]="{'width':'10%'}">{{'columns.id' | translate}}<p-sortIcon field="id"></p-sortIcon></th>
                                 <th scope="col" [style]="{'width':'17%'}">{{'columns.name' | translate}}<p-columnFilter [showOperator]="false"
-                                    type="text" field="nombre" display="menu" hideOnClear="true"></p-columnFilter></th>
+                                    type="text" field="nombre" display="menu" [hideOnClear]="true"></p-columnFilter></th>
                                 <th scope="col" [style]="{'width':'25%'}">{{'columns.description' | translate}}<p-columnFilter [showOperator]="false"
-                                    type="text" field="descripcion" display="menu" hideOnClear="true"></p-columnFilter></th>
+                                    type="text" field="descripcion" display="menu" [hideOnClear]="true"></p-columnFilter></th>
                                 <th scope="col" [style]="{'width':'15%'}">{{'columns.items' | translate}}</th>
                                 <th scope="col" [style]="{'width':'15%'}">{{'columns.status' | translate}} <p-columnFilter [showOperator]="false"
-                                    type="text" field="estado" display="menu" hideOnClear="true"></p-columnFilter></th>
+                                    type="text" field="estado" display="menu" [hideOnClear]="true"></p-columnFilter></th>
                                 <th scope="col" [style]="{'width':'15%'}">{{'columns.actions' | translate}}</th></tr>
                         </ng-template>
                         <ng-template pTemplate="body" let-row>

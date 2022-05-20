@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs';
 import { pick, findIndex, filter, get, forEach, find } from 'lodash';
-import { FormGroup } from '@angular/forms';
-import { PagingParams, PaginatedListDto } from '../models/paginated.models';
-import { GenericService } from '../services/general/generic.service';
-import { GlobalHttpService } from '../services/generics/global-http.service';
-import { ProcessDataBy } from '../utils/data-processing';
-import   UnSubscribe from '../utils/unsubscribe';
-import { AppInjector } from '../services/app-injector.service';
-import { MessagingService } from '../services/message.service';
-import { ACTION_MSG, SERVICE_LISTNAMES } from '../utils/constants';
-import { CategoriesDto } from '../../core/categories/models/categories.models';
+import { CategoriesDto } from 'src/app/core/categories/models/categories.models';
+import { AppInjector } from 'src/app/modules/services/app-injector.service';
+import { GenericService } from 'src/app/modules/services/general/generic.service';
+import { GlobalHttpService } from 'src/app/modules/services/generics/global-http.service';
+import { MessagingService } from 'src/app/modules/services/message.service';
+import { ACTION_MSG } from 'src/app/shared/constants/constants';
+import { ProcessDataBy } from 'src/app/shared/constants/data-processing';
+import UnSubscribe from 'src/app/shared/constants/unsubscribe';
+import { PagingParams, PaginatedListDto } from 'src/app/shared/models/paginated.models';
 
 type TDto = any;
 type TCRUDDto = any;

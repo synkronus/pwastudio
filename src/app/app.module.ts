@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 import { AppRoutesModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { CoreAppModule } from './core/pages.module';
@@ -11,7 +11,6 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LocalStorageService } from './services/local-storage.service';
 import { ErrorsHandler } from './services/http/error-handler.service';
-import { LoggerService } from './services/http/logger.service';
 import { EncodeHttpService } from './services/http/encode-Http.service';
 
 import { HttpDropService } from './services/http/http-drop.service';
@@ -22,7 +21,7 @@ import { environment } from 'src/environments/environment';
 import { ErrorHandlerInterceptor } from './services/http/errorHandlerInterceptor.service';
 import { AngularFireModule } from './angular-fire.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { CustomAppModule } from './modules/module-app.module';
+import { CustomAppModule } from './modules/custom-app.module';
 
 export const protectedResourceMap: any =
   [
@@ -32,6 +31,7 @@ export const protectedResourceMap: any =
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutesModule,
     CoreAppModule,
     CommonAppModule,
@@ -54,7 +54,6 @@ export const protectedResourceMap: any =
   providers: [
     HttpDropService,
     LocalStorageService,
-    LoggerService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: EncodeHttpService,

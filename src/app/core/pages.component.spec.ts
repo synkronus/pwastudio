@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PagesComponent } from './pages.component';
-import { PRIMENG_MODULE, PRIMENG_PROVIDERS } from '../modules/primeng.modules';
+import { PRIMENG_MODULE, PRIMENG_PROVIDERS } from '../shared/primeng.modules';
 
 
 describe('PagesComponent', () => {

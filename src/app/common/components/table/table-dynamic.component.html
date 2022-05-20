@@ -9,13 +9,13 @@
             </span>
             <p-multiSelect *ngIf="objDefinitions.showMultiSelectCols" [options]="objDefinitions.cols"
                 [(ngModel)]="selectedLocalColumns" optionLabel="header" selectedItemsLabel="{0} columnas seleccionadas"
-                resetFilterOnHide="true" class="p-mr-3 p-d-flex p-ai-center"></p-multiSelect>
+                [resetFilterOnHide]="true" class="p-mr-3 p-d-flex p-ai-center"></p-multiSelect>
             <label for="search"></label>
           </ng-template>
           <ng-template pTemplate="right">
               <div class="p-d-flex">
                   <button pButton type="button" icon="pi pi-plus" class="p-button-text p-button-raised p-mr-3 btnToolBar"
-                      pTooltip="Crear" tooltipPosition="bottom" (click)="onEditRow(null,'Crear')"></button>
+                      pTooltip="Crear" tooltipPosition="bottom" (click)="onEditRow(null,false)"></button>
                   <button pButton type="button" icon="pi pi-filter-slash" class="p-button-text p-button-raised p-mr-3 btnToolBar"
                       pTooltip="Limpiar" tooltipPosition="bottom"
                       (click)="dtDynamic.filterGlobal('', 'contains'); clearTbl(dtDynamic);"></button>
@@ -37,7 +37,7 @@
     responsiveLayout="scroll">
     <ng-template pTemplate="header" let-columns>
         <tr>
-            <th  class="minWidthHeaderId" scope="col" [id]="id" pSortableColumn="id">{{'#'}}
+            <th  class="minWidthHeaderId" scope="col" id="id" pSortableColumn="id">{{'#'}}
                 <p-sortIcon field="id"></p-sortIcon>
             </th>
             <th class="minWidth" scope="col" *ngFor="let col of columns"
@@ -46,7 +46,8 @@
                     [showOperator]="false" type="text"
                     field="{{col.field}}"
                     display="menu"
-                    hideOnClear="true" [id]="col.field"
+                    [hideOnClear]="true"
+                    [id]="col.field"
                 ></p-columnFilter>
             </th>
             <th scope="col" [style]="{'width':'8%'}">{{'columns.actions' | translate}}</th>
@@ -59,7 +60,7 @@
             <td style="text-align: center;">
                 <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-secondary p-button-text"
                     pTooltip="Edit" tooltipPosition="top" styleClass="p-button-sm"
-                    (click)="onEditRow(rowData,'Edit')"></button>
+                    (click)="onEditRow(rowData,true)"></button>
             </td>
         </tr>
     </ng-template>

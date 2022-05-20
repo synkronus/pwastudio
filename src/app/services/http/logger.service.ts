@@ -30,7 +30,6 @@
  * If you want to process logs through other outputs than console, you can add LogOutput functions to LoggerService.outputs.
  */
 
- import { Injectable } from "@angular/core";
 
  /**
  * The possible log levels.
@@ -50,9 +49,6 @@
 export type LogOutput = (source: string | undefined, level: LogLevel, ...objects: any[]) => void;
 
 
-@Injectable({
-  providedIn: "root",
-})
 export class LoggerService {
   /**
    * Current logging level.

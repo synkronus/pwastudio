@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import UnSubscribe from 'src/app/shared/utils/unsubscribe';
+import UnSubscribe from 'src/app/shared/constants/unsubscribe';
 
 @Component({
   selector: 'app-basic-dialog',

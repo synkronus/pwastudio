@@ -1,10 +1,10 @@
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { PaginatedListDto } from '../../shared/models/paginated.models';
-import { BasicCRUDComponent } from '../../shared/base/basic-crud';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { defaultRoutesObj, FieldsCfg, RoutesDto, TableColumnDefinitions,
               TablefilterOptions } from './models/simple.models';
+import { BasicCRUDComponent } from 'src/app/common/components/base/basic-crud';
 
 type TDto = RoutesDto;
 @Component({

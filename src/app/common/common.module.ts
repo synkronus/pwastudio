@@ -1,32 +1,29 @@
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HrefPreventDefaultDirective } from './directives/href-prevent-default.directive';
-import { HasClaimDirective } from './directives/has-claim.directive';
-import { AuthPage } from './directives/auth-page.directive';
 import { OverlayLoaderInterceptor } from '../services/http/overlay-interceptor.service';
 import { ShellAppModule } from './shell/shell.module';
-import { SharedAppModule } from '../shared/shared.module';
+import { SharedAppModule } from '../shared/shared-app.module';
+import { CustomAppModule } from '../modules/custom-app.module';
+import { ComponentsAppModule } from './components/component.module';
 
 @NgModule({
   imports: [
     SharedAppModule,
+    CustomAppModule,
     ShellAppModule,
-  ],
-  declarations: [
-    HrefPreventDefaultDirective,
-    HasClaimDirective,
-    AuthPage
-  ],
-  exports: [
-    HrefPreventDefaultDirective,
-    HasClaimDirective,
-    AuthPage
+    ComponentsAppModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: OverlayLoaderInterceptor,
       multi: true
-    }]
+    }],
+    exports : [
+      SharedAppModule,
+      CustomAppModule,
+      ShellAppModule,
+      ComponentsAppModule
+    ],
 })
 export class CommonAppModule { }

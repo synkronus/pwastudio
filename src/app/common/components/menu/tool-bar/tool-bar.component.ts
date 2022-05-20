@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import UnSubscribe from '../../../utils/unsubscribe';
+import UnSubscribe from 'src/app/shared/constants/unsubscribe';
 
 @Component({
   selector: 'app-tool-bar',
@@ -7,7 +7,7 @@ import UnSubscribe from '../../../utils/unsubscribe';
   styleUrls: ['./tool-bar.component.scss'],
 })
 export class ToolBarComponent extends UnSubscribe implements OnInit {
-  
+
   @Input() config;
 
   @Output() OnCreate = new EventEmitter<any>();

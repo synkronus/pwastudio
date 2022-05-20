@@ -5,12 +5,12 @@ import { ConfirmationService } from "primeng/api";
 import { DialogService, DynamicDialogRef } from "primeng/dynamicdialog";
 import { SubSink } from "subsink";
 import { PaginatedListDto, PagingParams } from "../../shared/models/paginated.models";
-import { MessagingService } from "../../shared/services/message.service";
+import { MessagingService } from "../../modules/services/message.service";
 import { CategoryItemsComponent } from "./category-items/category-items.component";
 import { CategoriesCrudDto, CategoriesDto, CategoryDataMdl, Statuses } from "./models/categories.models";
 import { CategoriesService } from "./services/categories.service";
 import { pick, findIndex, filter, orderBy } from 'lodash';
-import { ACTION_MSG } from "../../shared/utils/constants";
+import { ACTION_MSG } from "../../shared/constants/constants";
 
 @Component({
   selector: "app-categories",

@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GlobalHttpService } from '../../shared/services/generics/global-http.service';
-import { TableDynamicModule, BasicDialogModule} from '../../shared/components';
-import { GenericService } from '../../shared/services/general/generic.service';
+import { GlobalHttpService } from '../../modules/services/generics/global-http.service';
+import { GenericService } from '../../modules/services/general/generic.service';
 import { CardModule } from 'primeng/card';
 import { SimpleCrudComponent } from './simple-crud.component';
-import { PRIMENG_PROVIDERS } from '../../modules/primeng.modules';
+import { PRIMENG_PROVIDERS } from '../../shared/primeng.modules';
+import { BasicDialogModule, TableDynamicModule } from 'src/app/common/components';
 
 @NgModule({
   imports: [

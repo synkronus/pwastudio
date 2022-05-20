@@ -9,11 +9,11 @@ import { TableDynamicComponent } from './table-dynamic.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
-import { TruncatePipe } from '../../../common/pipes/truncate.pipe';
+import { SharedAppModule } from 'src/app/shared/shared-app.module';
+import { PRIMENG_MODULE } from 'src/app/shared/primeng.modules';
 
 @NgModule({
   imports: [
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     ButtonModule,
@@ -22,9 +22,10 @@ import { TruncatePipe } from '../../../common/pipes/truncate.pipe';
     InputTextModule,
     MultiSelectModule,
     TooltipModule,
-    TranslateModule
+    TranslateModule,
+    SharedAppModule
   ],
-  declarations: [TableDynamicComponent, TruncatePipe],
-  exports: [TableDynamicComponent, TruncatePipe],
+  declarations: [TableDynamicComponent],
+  exports: [TableDynamicComponent],
 })
 export class TableDynamicModule {}

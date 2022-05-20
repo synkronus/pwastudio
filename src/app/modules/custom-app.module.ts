@@ -6,7 +6,11 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor } from '../services/http/auth-httpInterceptor.service';
-import { SharedAppModule } from '../shared/shared.module';
+import { SharedAppModule } from '../shared/shared-app.module';
+import { MessageService } from 'primeng/api';
+import { DateFnsService } from '../services/date-fns.service';
+import { GlobalHttpService } from './services/generics/global-http.service';
+import { MessagingService } from './services/message.service';
 
 @NgModule({
   imports: [
@@ -17,6 +21,10 @@ import { SharedAppModule } from '../shared/shared.module';
     SharedAppModule,
   ],
   providers: [
+    DateFnsService,
+    MessageService,
+    MessagingService,
+    GlobalHttpService,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,

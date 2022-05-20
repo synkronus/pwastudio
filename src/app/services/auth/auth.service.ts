@@ -12,7 +12,7 @@ import { MenuService } from 'src/app/services/menu.service';
 import { LocalStorageService } from '../local-storage.service';
 
 import { SafeUrl, DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { USER_OBJ_CLAIMS } from 'src/app/shared/utils/constants';
+import { USER_OBJ_CLAIMS } from 'src/app/shared/constants/constants';
 import { environment } from 'src/environments/environment';
 
 import { AuthStoreState, AuthStoreActions } from 'src/app/modules/store-states';

@@ -11,6 +11,7 @@
 		"experimentalDecorators": true,
 		"importHelpers": true,
 		"target": "es2015",
+    "types": ["node"],
 		"typeRoots": [
 			"node_modules/@types"
 		],
@@ -22,13 +23,13 @@
 		"esModuleInterop": true,
 
 	},
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true,
-    "types" : ["node"]
-  }
+  // "angularCompilerOptions": {
+  //   "enableI18nLegacyMessageIdFormat": false,
+  //   "strictInjectionParameters": true,
+  //   "strictInputAccessModifiers": true,
+  //   "strictTemplates": true,
+  //   "strictDomEventTypes": false,
+  // }
 }
 
 
