@@ -10,8 +10,8 @@ import { ComponentsAppModule } from './components/component.module';
   imports: [
     SharedAppModule,
     CustomAppModule,
+    ComponentsAppModule,
     ShellAppModule,
-    ComponentsAppModule
   ],
   providers: [
     {
@@ -22,8 +22,8 @@ import { ComponentsAppModule } from './components/component.module';
     exports : [
       SharedAppModule,
       CustomAppModule,
+      ComponentsAppModule,
       ShellAppModule,
-      ComponentsAppModule
     ],
 })
 export class CommonAppModule { }

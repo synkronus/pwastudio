@@ -30,14 +30,13 @@ export const protectedResourceMap: any =
 
 @NgModule({
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutesModule,
-    CoreAppModule,
     CommonAppModule,
-    CustomAppModule,
+    CoreAppModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     LoadingBarHttpClientModule,
     LoadingBarModule,
     TranslateModule.forRoot({defaultLanguage: 'es-LA'}),
@@ -50,7 +49,6 @@ export const protectedResourceMap: any =
   declarations: [
     AppComponent,
   ],
-  exports: [CommonAppModule],
   providers: [
     HttpDropService,
     LocalStorageService,

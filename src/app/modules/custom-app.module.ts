@@ -11,11 +11,13 @@ import { MessageService } from 'primeng/api';
 import { DateFnsService } from '../services/date-fns.service';
 import { GlobalHttpService } from './services/generics/global-http.service';
 import { MessagingService } from './services/message.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     I18nModule,
+    TranslateModule,
     AuthModule,
     OverlayAppModule,
     SharedAppModule,
@@ -33,6 +35,13 @@ import { MessagingService } from './services/message.service';
     },
 
   ],
-  exports:[]
+  exports:[
+    CommonModule,
+    I18nModule,
+    TranslateModule,
+    AuthModule,
+    OverlayAppModule,
+    SharedAppModule,
+  ]
 })
 export class CustomAppModule { }

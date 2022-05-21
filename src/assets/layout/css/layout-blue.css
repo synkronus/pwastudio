@@ -1197,6 +1197,7 @@ a {
   -o-transition: color 0.2s, background-color 0.2s, border-left-color 0.2s;
   -webkit-transition: color 0.2s, background-color 0.2s, border-left-color 0.2s;
   transition: color 0.2s, background-color 0.2s, border-left-color 0.2s;
+  cursor: pointer;
 }
 .layout-wrapper .layout-menu-container .layout-menu li a .layout-menuitem-text {
   display: inline-block;
@@ -1232,6 +1233,7 @@ a {
 }
 .layout-wrapper .layout-menu-container .layout-menu li ul li a {
   padding-left: 2em;
+  cursor:pointer;
 }
 .layout-wrapper .layout-menu-container .layout-menu li ul li li a {
   padding-left: 3em;
@@ -1710,7 +1712,7 @@ a {
     -moz-transition: background-color 0.2s;
     -o-transition: background-color 0.2s;
     -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;    
+    transition: background-color 0.2s;
   }
   .layout-wrapper.layout-horizontal .layout-topbar .layout-topbar-search, .layout-wrapper.layout-slim .layout-topbar .layout-topbar-search {
     /* top: 5px; */

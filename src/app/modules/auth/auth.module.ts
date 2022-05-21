@@ -9,6 +9,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 import { TranslateModule } from '@ngx-translate/core';
+import { I18nModule } from '../i18n/i18n.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ButtonModule,
     InputTextModule,
     PasswordModule,
+    I18nModule,
     TranslateModule
   ],
   declarations: [

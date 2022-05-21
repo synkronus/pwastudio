@@ -10,10 +10,8 @@ const pagesRoutes: Routes = [
         children: [
             { path: '', redirectTo: '/inicio', pathMatch: 'full' },
             { path: 'inicio', canActivate: [AuthServiceGuard], component: StartComponent },
-            { path: 'operations/categories', canActivate: [AuthServiceGuard], loadChildren:
-                        () => import('./categories/categories.module').then(m => m.CategoriesModule) },
-            { path: 'operations/routes', canActivate: [AuthServiceGuard], loadChildren:
-                        () => import('./todo/simple-crud.module').then(m => m.SimpleCrudModule) },
+            { path: 'operations/categories', canActivate: [AuthServiceGuard], loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
+            { path: 'operations/routes', canActivate: [AuthServiceGuard], loadChildren: () => import('./todo/simple-crud.module').then(m => m.SimpleCrudModule) },
         ]
     },
     { path: '**', redirectTo: '/inicio', pathMatch: 'full' },

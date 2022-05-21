@@ -10,34 +10,40 @@ import { SubMenuComponent } from './sidebar/sub/sub-menu.component';
 import { BreadCrumbComponent } from './breadcrumb/breadcrumb.component';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { MenuService } from 'src/app/services/menu.service';
+import { I18nModule } from 'src/app/modules/i18n/i18n.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations:[
-      AppMenuComponent,
-      HeaderComponent,
-      BreadCrumbComponent,
-      FooterComponent,
-      RightMenuComponent,
-      SubMenuComponent,
-      AppSubMenuComponent,
-
-  ],
   imports:[
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-],
-exports: [
+    I18nModule,
+    TranslateModule,
+    RouterModule
+  ],
+  declarations:[
+      AppMenuComponent,
+      SubMenuComponent,
+      AppSubMenuComponent,
+      HeaderComponent,
+      BreadCrumbComponent,
+      FooterComponent,
+      RightMenuComponent,
+
+  ],
+  exports: [
     AppMenuComponent,
+    SubMenuComponent,
+    AppSubMenuComponent,
     HeaderComponent,
     FooterComponent,
     BreadCrumbComponent,
     RightMenuComponent,
-    SubMenuComponent,
-    AppSubMenuComponent,
-],
-providers: [AuthService, MenuService],
-schemas: [
+  ],
+  providers: [AuthService, MenuService],
+  schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
   ],

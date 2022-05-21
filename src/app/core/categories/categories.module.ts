@@ -16,9 +16,9 @@ const childRoutes : Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(childRoutes),
-    PRIMENG_MODULE,
     FormsModule,
     ReactiveFormsModule,
+    PRIMENG_MODULE,
     TranslateModule
   ],
   declarations: [CategoriesComponent,CategoryItemsComponent],

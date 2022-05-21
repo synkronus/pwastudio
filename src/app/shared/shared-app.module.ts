@@ -4,6 +4,8 @@ import { HasClaimDirective } from './directives/has-claim.directive';
 import { PRIMENG_MODULE, PRIMENG_PROVIDERS } from './primeng.modules';
 import { HrefPreventDefaultDirective } from './directives/href-prevent-default.directive';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { CurrencyInputDirective } from './directives/currency-input.directive';
+import { DatesPipe } from './pipes/dates.pipe';
 
 @NgModule({
   imports:[
@@ -13,14 +15,18 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     HrefPreventDefaultDirective,
     HasClaimDirective,
     AuthPage,
-    TruncatePipe
+    TruncatePipe,
+    DatesPipe,
+    CurrencyInputDirective
   ],
   exports: [
     HrefPreventDefaultDirective,
     HasClaimDirective,
     AuthPage,
     PRIMENG_MODULE,
-    TruncatePipe
+    TruncatePipe,
+    DatesPipe,
+    CurrencyInputDirective
   ],
   providers:[PRIMENG_PROVIDERS]
 })
