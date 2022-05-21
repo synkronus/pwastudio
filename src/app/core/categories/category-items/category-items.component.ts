@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService } from 'primeng/api';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { SubSink } from 'subsink';
-import { MessagingService } from '../../../modules/services/message.service';
+import { MessagingService } from '../../../common/services/message.service';
 import { CategoryDataMdl, CategoryItemCrudDto, CategoryItemsDto } from '../models/categories.models';
 import { CategoryItemsService } from '../services/category-items.service';
 import { isNumber, findIndex, filter, orderBy } from 'lodash';
-import { ACTION_MSG } from '../../../shared/constants/constants';
+import { ACTION_MSG } from '../../../common/constants/constants';
 
 @Component({
   selector: 'app-category-items',

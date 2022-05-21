@@ -1,16 +1,16 @@
 import { PagesComponent } from 'src/app/core/pages.component';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
 import { Component, Input, OnInit, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MenuItem } from 'primeng/api';
 
-import { MenuService } from 'src/app/services/menu.service';
+import { MenuService } from 'src/app/common/services/menu.service';
 import { SubSink } from 'subsink';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { ScrollPanel } from 'primeng/scrollpanel';
 import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @Component({
     selector: 'app-sidebar',

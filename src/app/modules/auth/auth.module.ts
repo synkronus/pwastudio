@@ -10,6 +10,10 @@ import { PasswordModule } from 'primeng/password';
 import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 import { TranslateModule } from '@ngx-translate/core';
 import { I18nModule } from '../i18n/i18n.module';
+import { AuthService } from './services/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthHttpInterceptor } from './services/auth-httpInterceptor.service';
+import { AuthServiceGuard } from './services/auth-service.guard';
 
 
 @NgModule({
@@ -26,6 +30,15 @@ import { I18nModule } from '../i18n/i18n.module';
   ],
   declarations: [
     LoginComponent
+  ],
+  providers:[
+    AuthServiceGuard,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true
+    },
   ],
   exports : [LoginComponent],
   schemas: [

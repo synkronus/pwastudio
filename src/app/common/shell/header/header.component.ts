@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MenuService } from 'src/app/services/menu.service';
+import { MenuService } from 'src/app/common/services/menu.service';
 import { SubSink } from 'subsink';
-import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
 import { PagesComponent } from 'src/app/core/pages.component';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-header',

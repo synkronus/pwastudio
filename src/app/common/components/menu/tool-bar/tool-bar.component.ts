@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import UnSubscribe from 'src/app/shared/constants/unsubscribe';
+import UnSubscribe from 'src/app/common/utils/unsubscribe';
 
 @Component({
   selector: 'app-tool-bar',

@@ -4,8 +4,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 import { MessageService } from 'primeng/api';
 
-import { VersionService } from '../version.service';
 import { LoggerService } from './logger.service';
+import { VersionService } from './version.service';
 const logger = new LoggerService('ErrorHandlerGlobal');
 
 @Injectable({
@@ -16,8 +16,8 @@ export class ErrorsHandler implements ErrorHandler {
   private readonly notifier = this.injector.get(MessageService);
     private readonly version = this.injector.get(VersionService);
 
-    constructor(private injector: Injector) { 
-        if (environment.production) 
+    constructor(private injector: Injector) {
+        if (environment.production)
             this.settingUpSentryInit((this.version.getCurrentVersion()).toString());
     }
 

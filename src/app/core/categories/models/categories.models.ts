@@ -1,4 +1,4 @@
-import { AuditableFields } from "../../../shared/models/common.models";
+import { AuditableFields } from "../../../common/shared/models/common.models";
 
 export class CategoriesDto extends AuditableFields {
     id?: number;

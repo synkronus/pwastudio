@@ -1,7 +1,7 @@
-import { SERVICE_LISTNAMES } from './constants';
 import {orderBy, find, head, forEach, get, map, replace, lowerCase, filter, set} from "lodash";
 
 import { getUnixTime } from 'date-fns';
+import { SERVICE_LISTNAMES } from "../constants/constants";
 
 let gnrlSvcMstrDt: { [s:string]:any } = {};
 export class ProcessDataBy {
@@ -11,8 +11,8 @@ export class ProcessDataBy {
 
 
    public static SortItems(dt:any, order:string = 'desc') {
-        return order === 'desc' ? 
-                    orderBy(dt,['id'],['desc']) : 
+        return order === 'desc' ?
+                    orderBy(dt,['id'],['desc']) :
                             orderBy(dt,['id'],['asc']);
     }
 
@@ -23,8 +23,8 @@ export class ProcessDataBy {
     public static ExtractDefaultObjPatch(arrayList?: any[], defaultVal?:any) {
         return head(arrayList) || defaultVal;
     }
-    
-    public static ExtractDefaultObjPatchDD(fName:string , fields ) { 
+
+    public static ExtractDefaultObjPatchDD(fName:string , fields ) {
         const fldDefChoices = find(fields, ['name', fName]);
         return find(get(fldDefChoices,['choices'],[]), ['nombre',fldDefChoices.defaultValue])
     }
@@ -55,5 +55,5 @@ export class ProcessDataBy {
     public static getRandomStr(name?:string) {
         return (getUnixTime(new Date()) + new Date().getMilliseconds() + (name).toUpperCase()).toString();
     }
-    
+
 }

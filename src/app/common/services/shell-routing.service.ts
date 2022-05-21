@@ -1,6 +1,6 @@
 import { Routes, Route } from '@angular/router';
 import { PagesComponent } from '../../core/pages.component';
-import { AuthServiceGuard } from 'src/app/services/auth/auth-service.guard';
+import { AuthServiceGuard } from 'src/app/modules/auth/services/auth-service.guard';
 
 /**
  * Provides helper methods to create routes.

@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { PaginatedListDto } from '../../shared/models/paginated.models';
+import { PaginatedListDto } from '../../common/shared/models/paginated.models';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { defaultRoutesObj, FieldsCfg, RoutesDto, TableColumnDefinitions,
               TablefilterOptions } from './models/simple.models';

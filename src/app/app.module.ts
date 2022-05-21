@@ -10,15 +10,14 @@ import { CoreAppModule } from './core/pages.module';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LocalStorageService } from './services/local-storage.service';
-import { ErrorsHandler } from './services/http/error-handler.service';
-import { EncodeHttpService } from './services/http/encode-Http.service';
+import { ErrorsHandler } from './services/error-handler.service';
+import { EncodeHttpService } from './services/encode-Http.service';
 
-import { HttpDropService } from './services/http/http-drop.service';
-import { CommonAppModule } from './common/common.module';
+import { HttpDropService } from './services/http-drop.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { environment } from 'src/environments/environment';
-import { ErrorHandlerInterceptor } from './services/http/errorHandlerInterceptor.service';
+import { ErrorHandlerInterceptor } from './services/errorHandlerInterceptor.service';
 import { AngularFireModule } from './angular-fire.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { CustomAppModule } from './modules/custom-app.module';
@@ -34,8 +33,8 @@ export const protectedResourceMap: any =
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutesModule,
-    CommonAppModule,
     CoreAppModule,
+    CustomAppModule,
     HttpClientModule,
     LoadingBarHttpClientModule,
     LoadingBarModule,

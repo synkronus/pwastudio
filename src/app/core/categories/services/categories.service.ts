@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import {mergeMap as _observableMergeMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { CategoriesCrudDto } from '../models/categories.models';
-import { BuildQueryParams, IPaginatedModel, PaginatedListDto, PagingParams } from '../../../shared/models/paginated.models';
+import { BuildQueryParams, IPaginatedModel, PaginatedListDto, PagingParams } from '../../../common/shared/models/paginated.models';
 export const headers = new HttpHeaders().set("Content-Type", "application/json",);
 
 @Injectable({

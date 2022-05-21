@@ -1,4 +1,4 @@
-import { GRID_REF, SERVICE_LISTNAMES, VALIDATION_CRITERIA } from "../../../shared/constants/constants";
+import { GRID_REF, SERVICE_LISTNAMES, VALIDATION_CRITERIA } from "../../../common/constants/constants";
 
 export const filteringRoutesOptions  = ['id','nombre', 'estado'];
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
-import { OverlayService } from 'src/app/services/overlay.service';
+import { OverlayService } from 'src/app/modules/overlay/overlay.service';
 
 @Component({
   selector: 'overlay-loader',

@@ -1,6 +1,6 @@
 import { PagesComponent } from 'src/app/core/pages.component';
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { MenuService } from "src/app/services/menu.service";
+import { MenuService } from "src/app/common/services/menu.service";
 import { SubSink } from "subsink";
 
 @Component({
@@ -12,7 +12,7 @@ export class RightMenuComponent implements OnInit, OnDestroy {
   subsink = new SubSink();
 
   statusActive = true;
-  rightPanelMenuActive: boolean = false;  
+  rightPanelMenuActive: boolean = false;
   messagesActive: boolean;
 
   //notifications
@@ -36,11 +36,11 @@ export class RightMenuComponent implements OnInit, OnDestroy {
         }
       });
 
-  }  
-  
+  }
+
   syncMsg() {
   }
-  
+
   messagesClick() {
     this.statusActive = false;
     this.messagesActive = true;

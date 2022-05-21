@@ -28,7 +28,7 @@ import { CalendarPrmNg } from './types/calendar.type';
 import { FormlyConfigModule } from './config/config.module';
 import { EditorPrmNg } from './types/editor.type';
 import { TreeSelectPrmNgModule } from './types/treeselect/treeselect.module';
-import { PRIMENG_MODULE } from 'src/app/shared/primeng.modules';
+import { PRIMENG_MODULE } from 'src/app/common/shared/primeng.modules';
 
 export const FormlyCustomTypes = [
   { name: 'string', extends: 'input' },

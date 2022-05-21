@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ObservableStore } from '@codewithdan/observable-store';
-import { VersionActions, VersionStoreState } from '../modules/store-states';
-import { DateFnsService } from './date-fns.service';
+import { VersionActions, VersionStoreState } from '../common/app-state/store-states';
+import { DateFnsService } from '../common/services/date-fns.service';
 
 @Injectable({
     providedIn: 'root'

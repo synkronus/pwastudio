@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MenuService } from '../services/menu.service';
+import { MenuService } from '../common/services/menu.service';
 import { SubSink } from 'subsink';
 
 @Component({
@@ -8,7 +8,7 @@ import { SubSink } from 'subsink';
   styleUrls: ['./pages.component.scss']
 })
 export class PagesComponent implements OnInit, OnDestroy  {
-    
+
   subsink = new SubSink();
   menuMode =  (this.isDesktop) ? 'static' : 'overlay' ;
   overlayMenuActive: boolean = !!this.isDesktop;
@@ -51,7 +51,7 @@ export class PagesComponent implements OnInit, OnDestroy  {
             }
             if(!!state && state.stateChanges.hasOwnProperty("rightMenuClick")){
                 let rkm = state.stateChanges.rightMenuClick;
-                this.rightMenuClick = rkm;               
+                this.rightMenuClick = rkm;
                 // this.hideOverlayMenu();
             }
             if(!!state && state.stateChanges.hasOwnProperty("onMenuButtonClick")){
@@ -62,7 +62,7 @@ export class PagesComponent implements OnInit, OnDestroy  {
                 this.topbarUserMenuActive = mclk['topbarUserMenuActive'];
                 this.topbarNotificationMenuActive = mclk['topbarNotificationMenuActive']; // false when side menu out
                 this.rightPanelMenuActive = mclk['rightPanelMenuActive'];
-                let x = this.menuService.getMenuOp("generalMenu");
+                // let x = this.menuService.getMenuOp("generalMenu");
                 // if (this.isOverlay()) {
                 //     this.overlayMenuActive = true;
                 //     overLayActive = true;
@@ -101,7 +101,7 @@ export class PagesComponent implements OnInit, OnDestroy  {
         });
     }
 
-    
+
 
     ngOnDestroy(): void {
         this.subsink.unsubscribe();
@@ -147,7 +147,7 @@ export class PagesComponent implements OnInit, OnDestroy  {
       this.menuClick = false;
   }
 
-  onMenuButtonClick(event) { 
+  onMenuButtonClick(event) {
       this.menuClick = true;
       this.topbarUserMenuActive = false;
       this.topbarNotificationMenuActive = false;

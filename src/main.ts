@@ -4,7 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { ObservableStore } from '@codewithdan/observable-store';
-import { AppInjector } from './app/modules/services/app-injector.service';
+import { AppInjector } from './app/services/app-injector.service';
 
 if (environment.production) {
   enableProdMode();

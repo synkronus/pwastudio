@@ -1,11 +1,8 @@
-import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CategoriesComponent } from './categories.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriesService } from './services/categories.service';
-import { PRIMENG_MODULE, PRIMENG_PROVIDERS } from '../../shared/primeng.modules';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PRIMENG_PROVIDERS } from '../../common/shared/primeng.modules';
 import { CategoryItemsComponent } from './category-items/category-items.component';
 
 const childRoutes : Routes = [
@@ -14,12 +11,7 @@ const childRoutes : Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
     RouterModule.forChild(childRoutes),
-    FormsModule,
-    ReactiveFormsModule,
-    PRIMENG_MODULE,
-    TranslateModule
   ],
   declarations: [CategoriesComponent,CategoryItemsComponent],
   providers: [PRIMENG_PROVIDERS, CategoriesService]

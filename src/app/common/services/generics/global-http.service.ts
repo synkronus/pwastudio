@@ -1,11 +1,11 @@
-import { BuildQueryParams, IPaginatedModel, PaginatedListDto, PagingParams } from '../../../shared/models/paginated.models';
+import { BuildQueryParams, IPaginatedModel, PaginatedListDto, PagingParams } from '../../shared/models/paginated.models';
 import { Observable, of as _observableOf, throwError as _observableThrow } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {mergeMap as _observableMergeMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Inject, Injectable, Optional } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api';
-import { GenericFilterResponse } from '../../../shared/models/common.models';
+import { GenericFilterResponse } from '../../shared/models/common.models';
 
 export const headers = new HttpHeaders().set("Content-Type", "application/json",);
 @Injectable({providedIn: 'any'})

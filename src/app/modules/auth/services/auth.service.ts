@@ -8,14 +8,14 @@ import { map, tap } from 'rxjs/operators';
 import { ObservableStore } from '@codewithdan/observable-store';
 
 import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
-import { MenuService } from 'src/app/services/menu.service';
-import { LocalStorageService } from '../local-storage.service';
+import { MenuService } from 'src/app/common/services/menu.service';
 
 import { SafeUrl, DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { USER_OBJ_CLAIMS } from 'src/app/shared/constants/constants';
+import { USER_OBJ_CLAIMS } from 'src/app/common/constants/constants';
 import { environment } from 'src/environments/environment';
 
-import { AuthStoreState, AuthStoreActions } from 'src/app/modules/store-states';
+import { AuthStoreState, AuthStoreActions } from 'src/app/common/app-state/store-states';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Injectable({
   providedIn: "root",

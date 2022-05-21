@@ -1,5 +1,5 @@
 import { FormlyFieldConfig } from "@ngx-formly/core";
-import { AuditableFields } from "src/app/shared/models/common.models";
+import { AuditableFields } from "src/app/common/shared/models/common.models";
 
   export interface RoutesDto extends AuditableFields {
     id?: number;

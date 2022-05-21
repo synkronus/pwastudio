@@ -9,8 +9,8 @@ import { TableDynamicComponent } from './table-dynamic.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
-import { SharedAppModule } from 'src/app/shared/shared-app.module';
-import { PRIMENG_MODULE } from 'src/app/shared/primeng.modules';
+import { SharedAppModule } from 'src/app/common/shared/shared-app.module';
+import { PRIMENG_MODULE } from 'src/app/common/shared/primeng.modules';
 
 @NgModule({
   imports: [

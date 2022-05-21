@@ -1,5 +1,5 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @Directive({
   selector: '[hasClaim]'
@@ -11,10 +11,10 @@ export class HasClaimDirective {
     else  // Remove template from DOM
       this.viewContainer.clear();
   }
-  
+
   constructor(private templateRef: TemplateRef<any>,
             private viewContainer: ViewContainerRef,
-            private securityService: AuthService) { 
+            private securityService: AuthService) {
     }
 
 }

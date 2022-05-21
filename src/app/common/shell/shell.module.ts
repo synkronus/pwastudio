@@ -8,11 +8,11 @@ import { FooterComponent } from './footer/footer.component';
 import { RightMenuComponent } from './right-menu/right-menu.component';
 import { SubMenuComponent } from './sidebar/sub/sub-menu.component';
 import { BreadCrumbComponent } from './breadcrumb/breadcrumb.component';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { MenuService } from 'src/app/services/menu.service';
+import { MenuService } from 'src/app/common/services/menu.service';
 import { I18nModule } from 'src/app/modules/i18n/i18n.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @NgModule({
   imports:[

@@ -2,7 +2,7 @@ import { PrimeNGConfig } from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { VersionService } from './services/version.service';
-import { LoggerService } from './services/http/logger.service';
+import { LoggerService } from './services/logger.service';
 import { take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { SubSink } from 'subsink';

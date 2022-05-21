@@ -4,13 +4,13 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ConfirmationService } from "primeng/api";
 import { DialogService, DynamicDialogRef } from "primeng/dynamicdialog";
 import { SubSink } from "subsink";
-import { PaginatedListDto, PagingParams } from "../../shared/models/paginated.models";
-import { MessagingService } from "../../modules/services/message.service";
+import { PaginatedListDto, PagingParams } from "../../common/shared/models/paginated.models";
+import { MessagingService } from "../../common/services/message.service";
 import { CategoryItemsComponent } from "./category-items/category-items.component";
 import { CategoriesCrudDto, CategoriesDto, CategoryDataMdl, Statuses } from "./models/categories.models";
 import { CategoriesService } from "./services/categories.service";
 import { pick, findIndex, filter, orderBy } from 'lodash';
-import { ACTION_MSG } from "../../shared/constants/constants";
+import { ACTION_MSG } from "../../common/constants/constants";
 
 @Component({
   selector: "app-categories",

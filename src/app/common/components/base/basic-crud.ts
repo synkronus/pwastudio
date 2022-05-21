@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { pick, findIndex, filter, get, forEach, find } from 'lodash';
 import { CategoriesDto } from 'src/app/core/categories/models/categories.models';
-import { AppInjector } from 'src/app/modules/services/app-injector.service';
-import { GenericService } from 'src/app/modules/services/general/generic.service';
-import { GlobalHttpService } from 'src/app/modules/services/generics/global-http.service';
-import { MessagingService } from 'src/app/modules/services/message.service';
-import { ACTION_MSG } from 'src/app/shared/constants/constants';
-import { ProcessDataBy } from 'src/app/shared/constants/data-processing';
-import UnSubscribe from 'src/app/shared/constants/unsubscribe';
-import { PagingParams, PaginatedListDto } from 'src/app/shared/models/paginated.models';
+import { AppInjector } from 'src/app/services/app-injector.service';
+import { GenericService } from 'src/app/common/services/general/generic.service';
+import { GlobalHttpService } from 'src/app/common/services/generics/global-http.service';
+import { MessagingService } from 'src/app/common/services/message.service';
+import { ACTION_MSG } from 'src/app/common/constants/constants';
+import { PagingParams, PaginatedListDto } from 'src/app/common/shared/models/paginated.models';
+import UnSubscribe from '../../utils/unsubscribe';
+import { ProcessDataBy } from '../../utils/data-processing';
 
 type TDto = any;
 type TCRUDDto = any;

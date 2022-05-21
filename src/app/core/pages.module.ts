@@ -7,7 +7,6 @@ import { CommonAppModule } from '../common/common.module';
   imports: [
     PAGES_ROUTES,
     CommonAppModule,
-
 ],
 declarations: [
     PagesComponent,
