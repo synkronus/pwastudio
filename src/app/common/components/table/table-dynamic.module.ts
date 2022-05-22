@@ -10,7 +10,6 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { SharedAppModule } from 'src/app/common/shared/shared-app.module';
-import { PRIMENG_MODULE } from 'src/app/common/shared/primeng.modules';
 
 @NgModule({
   imports: [

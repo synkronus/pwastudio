@@ -1,5 +1,5 @@
 import { Routes, Route } from '@angular/router';
-import { PagesComponent } from '../../core/pages.component';
+import { PagesComponent } from 'src/app/core/pages.component';
 import { AuthServiceGuard } from 'src/app/modules/auth/services/auth-service.guard';
 
 /**

@@ -6,6 +6,14 @@ import { HrefPreventDefaultDirective } from './directives/href-prevent-default.d
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { CurrencyInputDirective } from './directives/currency-input.directive';
 import { DatesPipe } from './pipes/dates.pipe';
+import { MessageService } from 'primeng/api';
+import { PushNtfComponent } from './push/push-ntf.component';
+import UnSubscribe from '../utils/unsubscribe';
+import { DateFnsService } from './services/date-fns.service';
+import { GlobalHttpService } from './services/generics/global-http.service';
+import { MenuService } from './services/menu.service';
+import { MessagingService } from './services/message.service';
+import { SupabaseService } from './services/supa/supabase.service';
 
 @NgModule({
   imports:[
@@ -17,7 +25,9 @@ import { DatesPipe } from './pipes/dates.pipe';
     AuthPage,
     TruncatePipe,
     DatesPipe,
-    CurrencyInputDirective
+    CurrencyInputDirective,
+    UnSubscribe,
+    PushNtfComponent
   ],
   exports: [
     HrefPreventDefaultDirective,
@@ -26,8 +36,18 @@ import { DatesPipe } from './pipes/dates.pipe';
     PRIMENG_MODULE,
     TruncatePipe,
     DatesPipe,
-    CurrencyInputDirective
+    CurrencyInputDirective,
+    UnSubscribe,
+    PushNtfComponent
   ],
-  providers:[PRIMENG_PROVIDERS]
+  providers:[
+    DateFnsService,
+    MenuService,
+    MessageService,
+    MessagingService,
+    GlobalHttpService,
+    SupabaseService,
+    PRIMENG_PROVIDERS
+  ]
 })
 export class SharedAppModule { }

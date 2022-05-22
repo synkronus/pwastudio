@@ -2,12 +2,12 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { Injectable } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import UnSubscribe from '../utils/unsubscribe';
+import UnSubscribe from '../../utils/unsubscribe';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MessagingService extends UnSubscribe{
+export class MessagingService extends UnSubscribe {
 
 
   constructor(private msgSvc: MessageService, private translate: TranslateService) {

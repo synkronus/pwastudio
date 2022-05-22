@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MenuService } from '../common/services/menu.service';
 import { SubSink } from 'subsink';
+import { MenuService } from '../common/shared/services/menu.service';
 
 @Component({
   selector: 'app-pages',

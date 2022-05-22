@@ -1,7 +1,7 @@
 import { PagesComponent } from 'src/app/core/pages.component';
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { MenuService } from "src/app/common/services/menu.service";
 import { SubSink } from "subsink";
+import { MenuService } from '../../shared/services/menu.service';
 
 @Component({
   selector: "app-right-menu",

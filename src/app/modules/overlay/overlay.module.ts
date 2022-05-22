@@ -10,7 +10,6 @@ import { OverlayLoaderComponent } from './overlay-loader.component';
   imports: [
     BrowserModule,
     BlockUIModule,
-    OverlayAppModule,
   ],
   providers: [
     {

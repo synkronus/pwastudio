@@ -1,3 +1,4 @@
+import { SharedAppModule } from 'src/app/common/shared/shared-app.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -8,11 +9,11 @@ import { FooterComponent } from './footer/footer.component';
 import { RightMenuComponent } from './right-menu/right-menu.component';
 import { SubMenuComponent } from './sidebar/sub/sub-menu.component';
 import { BreadCrumbComponent } from './breadcrumb/breadcrumb.component';
-import { MenuService } from 'src/app/common/services/menu.service';
 import { I18nModule } from 'src/app/modules/i18n/i18n.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { MenuService } from '../shared/services/menu.service';
 
 @NgModule({
   imports:[
@@ -21,7 +22,8 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
     ReactiveFormsModule,
     I18nModule,
     TranslateModule,
-    RouterModule
+    RouterModule,
+    SharedAppModule
   ],
   declarations:[
       AppMenuComponent,

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ObservableStore } from '@codewithdan/observable-store';
 import { truncate, omit } from 'lodash';
-import { MenuActions, MenuStates } from '../app-state/store-states';
+import { MenuActions, MenuStates } from '../../app-state/store-states';
+
 @Injectable({
     providedIn: 'root'
 })
