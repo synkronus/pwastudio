@@ -8,13 +8,12 @@ import { CurrencyInputDirective } from './directives/currency-input.directive';
 import { DatesPipe } from './pipes/dates.pipe';
 import { MessageService } from 'primeng/api';
 import { PushNtfComponent } from './push/push-ntf.component';
-import UnSubscribe from '../utils/unsubscribe';
 import { DateFnsService } from './services/date-fns.service';
 import { GlobalHttpService } from './services/generics/global-http.service';
 import { MenuService } from './services/menu.service';
 import { MessagingService } from './services/message.service';
 import { SupabaseService } from './services/supa/supabase.service';
-
+import UnSubscribe from './utils/unsubscribe';
 @NgModule({
   imports:[
     PRIMENG_MODULE

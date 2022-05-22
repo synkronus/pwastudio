@@ -1,7 +1,7 @@
 import {orderBy, find, head, forEach, get, map, replace, lowerCase, filter, set} from "lodash";
 
 import { getUnixTime } from 'date-fns';
-import { SERVICE_LISTNAMES } from "../constants/constants";
+import { SERVICE_LISTNAMES } from "../../constants/constants";
 
 let gnrlSvcMstrDt: { [s:string]:any } = {};
 export class ProcessDataBy {
