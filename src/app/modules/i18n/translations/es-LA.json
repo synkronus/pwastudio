@@ -161,6 +161,10 @@
       "title": "Operaciones",
       "routes": "Rutas",
       "category": "Categorias"
+    },
+    "account": {
+      "title": "Account",
+      "configuration": "Configuration"
     }
   }
 }

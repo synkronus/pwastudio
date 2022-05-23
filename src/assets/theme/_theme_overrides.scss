@@ -172,3 +172,16 @@ body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
   }
+
+  .cstm-card  {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    min-height: 95vh !important;
+    width: 100%;
+}
+
+
+formly-field {
+  display: block;
+  margin: 8px 0;
+}

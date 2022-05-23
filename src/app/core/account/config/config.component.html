@@ -1,0 +1,30 @@
+<p-card header="{{componentTitle}}" [style]="{'margin-bottom': '2em', 'width':'100%'}">
+  <div class="cstm-card">
+    <div class="p-grid" style="margin-top: -20px;">
+        <p-card style="width:100%">
+          <app-avatar
+              [avatarUrl]="objAccount.profile?.avatar_url"
+              (upload)="updateProfile($event)"
+            >
+           </app-avatar>
+
+              <form [formGroup]="objCfg.form" >
+                <formly-form
+                  [form]="objCfg.form"
+                  [model]="objCfg.model"
+                  [fields]="objCfg.fields">
+                </formly-form>
+              </form>
+
+          <ng-template pTemplate="footer" >
+            <button pButton pRipple label="Guardar" icon="pi pi-check" type="submit"
+                class="p-button-text p-button-rounded p-button-raised" (click)="onSubmit()" [disabled]="!objCfg.form.valid"></button>
+            <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text p-button-rounded p-button-raised p-ml-2"
+                type="reset" (click)="false" ></button>
+          </ng-template>
+        </p-card>
+    </div>
+  </div>
+</p-card>
+
+

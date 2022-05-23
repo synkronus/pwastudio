@@ -12,6 +12,7 @@ const pagesRoutes: Routes = [
             { path: 'inicio', canActivate: [AuthServiceGuard], component: StartComponent },
             { path: 'operations/categories', canActivate: [AuthServiceGuard], loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
             { path: 'operations/routes', canActivate: [AuthServiceGuard], loadChildren: () => import('./simple-crud/simple-crud.module').then(m => m.SimpleCrudModule) },
+            { path: 'user/config', canActivate: [AuthServiceGuard], loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
         ]
     },
     { path: '**', redirectTo: '/inicio', pathMatch: 'full' },

@@ -99,6 +99,10 @@ export class AuthService extends ObservableStore<AuthStoreState> {
   }
 
 //#region user signin & signout
+  get user() {
+    return this.supabaseClient.auth.user();
+  }
+
   async SignOut() {
     await this.supabaseClient.auth.signOut();
   }

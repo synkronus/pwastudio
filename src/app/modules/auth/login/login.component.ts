@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { Subscription, Observable } from 'rxjs';
 import { AuthService, UserCredentials } from '../services/auth.service';
 import { Provider } from '@supabase/supabase-js';
+import  UnSubscribe  from 'src/app/common/shared/utils/unsubscribe';
 
 export const EmailValidation = [
   Validators.required,
@@ -25,7 +26,7 @@ export const PasswordValidation = [
   styleUrls: ["./login.component.scss"],
   providers: [MessageService],
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent extends UnSubscribe implements OnInit {
   loginForm: FormGroup;
   isLoading : boolean = false;
   loginError = "";
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private fb: FormBuilder, private authService: AuthService,
         private router: Router, private toastService: MessageService) {
+          super();
         // route.paramMap.subscribe(
         //   params => (this.redirectUrl = params.get('redirectUrl'))
         // );
@@ -53,19 +55,17 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
-
   handleOAuthLogin(provider: Provider) {
     this.authService.signInWithProvider(provider)
     .then((dt)=> {
       const { user, session, error } = dt;
-      console.error('handleOAuthLogin: ', user, session, error);
       if (user && !error ) {
-        console.error('Success login: ', user, session);
+        this.initForm();
+        this.router.navigateByUrl('/inicio');
       } else if (error) {
-        // this.helperText = { error: true, text: error.message };
-        console.error('Error: ', error.message);
+        this.informUserError(error.message);
       }else {
-        console.error('Error: Something went wrong!');
+        this.informUserError('Error: Something went wrong!');
       }
     })
     .catch((err) => {
@@ -104,10 +104,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   initForm() {
     this.isLoading = false;
     this.loginForm.reset();
-  }
-
-  ngOnDestroy(): void {
-    this.subSink.unsubscribe();
   }
 
 }

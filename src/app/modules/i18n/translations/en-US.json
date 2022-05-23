@@ -158,6 +158,10 @@
       "title": "Operations",
       "routes": "Routes",
       "category": "Categories"
+    },
+    "account": {
+      "title": "Account",
+      "configuation": "Configuration"
     }
   }
 }
