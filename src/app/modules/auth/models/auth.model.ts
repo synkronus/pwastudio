@@ -1,3 +1,4 @@
+import { AuthChangeEvent, Session } from "@supabase/supabase-js";
 
 export class UserLoginModel {
     id: string;
@@ -13,11 +14,12 @@ export class UserLoginModel {
     user_data: user_data[];
     user_claims: user_claims[];
 }
+
 export class user_data {
     email_institucional : string;
     email_personal : string;
     telefono_institucional : string;
-    telefono_movil : string;    
+    telefono_movil : string;
     direccion_fisica : string;
 }
 export class user_claims {
@@ -45,4 +47,9 @@ export class UsuarioMenuModelo
     Apellidos: string;
     Email: string;
     user_claims: string;
+}
+
+export interface AuthStateChanges  {
+  event: AuthChangeEvent | null;
+  session: Session | null;
 }

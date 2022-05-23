@@ -14,6 +14,7 @@ import { AuthService } from './services/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor } from './services/auth-httpInterceptor.service';
 import { AuthServiceGuard } from './services/auth-service.guard';
+import {DividerModule} from 'primeng/divider';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AuthServiceGuard } from './services/auth-service.guard';
     InputTextModule,
     PasswordModule,
     I18nModule,
-    TranslateModule
+    TranslateModule,
+    DividerModule
   ],
   declarations: [
     LoginComponent

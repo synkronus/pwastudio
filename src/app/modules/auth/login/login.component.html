@@ -1,7 +1,7 @@
 <p-toast key="tst-lgn" position="top-right"></p-toast>
 <div class="login-body" [ngStyle]="{'background': 'url(' + urlBackImg + ') no-repeat 0 0 / cover'}">
     <div class="card login-panel ui-fluid">
-        <div class="login-panel-content" style="margin-top: 260px;">
+        <div class="login-panel-content" >
             <form [formGroup]="loginForm" (ngSubmit)="SignInUser(loginForm)" autocomplete="off">
                 <div class="p-grid">
 
@@ -10,7 +10,7 @@
                     <div class="p-col-12 username-container">
                         <label for="float-input">{{'login.username' | translate}}</label>
                         <div class="login-input">
-                            <input id="float-input" #unm type="text" pInputText formControlName="username"
+                            <input id="float-input" #unm type="text" pInputText formControlName="email"
                                 autocomplete="off" maxlength="50">
                         </div>
                     </div>
@@ -21,25 +21,35 @@
                                 autocomplete="off" maxlength="50" />
                         </div>
                     </div>
-                    <div class="p-col-12 p-sm-7 p-md-7 rememberme-container btn-style">
-                        <button pButton type="button" label="{{'login.forgotPassword' | translate}}" icon="pi pi-user-edit" iconPos="left"
-                            class="p-button-text p-button-raised"></button>
-
-                    </div>
-
                     <div class="p-col-12 p-sm-5 p-md-5 forgetpassword-container btn-style">
                         <button pButton type="submit" label="{{'login.login' | translate}}" icon="pi pi-sign-in" iconPos="left"
                             class="p-button-text p-button-raised" [disabled]="loginForm.invalid || isLoading"></button>
                     </div>
-                    <br>
-                </div>
 
-                <div class="p-col-12 ">
-                    <label for="float-input">{{'language.title' | translate}}</label>
-                    <app-lang-selector></app-lang-selector>
-                </div>
-
+                    <div class="p-col-12 p-sm-7 p-md-7 rememberme-container btn-style">
+                      <button pButton type="button" label="{{'login.forgotPassword' | translate}}" icon="pi pi-user-edit" iconPos="left"
+                          class="p-button-text p-button-raised"></button>
+                    </div>
+                  </div>
             </form>
+            <p-divider align="center" type="dashed">
+              <b>Or continue with</b>
+            </p-divider>
+            <div class="p-grid">
+              <div class="p-col-12 p-sm-6 rememberme-container btn-style">
+                <button pButton type="button" label="Google" icon="pi pi-google" iconPos="left"
+                    class="p-button-text p-button-raised" (click)="handleOAuthLogin('google')"></button>
+              </div>
+              <div class="p-col-12 p-sm-6 rememberme-container btn-style">
+                <button pButton type="button" label="Facebook" icon="pi pi-facebook" iconPos="left"
+                    class="p-button-text p-button-raised" (click)="handleOAuthLogin('facebook')"></button>
+              </div>
+              <br>
+              <div class="p-col-12 ">
+                  <label for="float-input">{{'language.title' | translate}}</label>
+                  <app-lang-selector></app-lang-selector>
+              </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { userPermissionsclaims } from 'src/app/modules/auth/models/org.model';
-import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
+import { AuthStateChanges, UserLoginModel } from 'src/app/modules/auth/models/auth.model';
 import { UserPermissionsModel } from 'src/app/modules/auth/models/org.model';
 import { BreadCrumbMdl } from 'src/app/common/shell/breadcrumb/bradcrumb.model';
 
@@ -56,11 +56,13 @@ export enum AuthStoreActions {
   ResfeshToken = 'SET_REFRESH_TOKEN',
   InitAuthStore = 'INIT_AUTH_STORE',
   AuthStatus = 'AUTH_STATUS',
+  AuthStateChanges = 'AUTH_STATE_CHANGES',
 }
 
 export interface AuthStoreState {
   authStatus: boolean;
   userLogin: UserLoginModel;
+  authStateChanges: AuthStateChanges;
   token: string;
   refreshToken: string;
 }

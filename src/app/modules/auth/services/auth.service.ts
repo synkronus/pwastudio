@@ -7,20 +7,27 @@ import { map, tap } from 'rxjs/operators';
 
 import { ObservableStore } from '@codewithdan/observable-store';
 
-import { UserLoginModel } from 'src/app/modules/auth/models/auth.model';
+import { AuthStateChanges, UserLoginModel } from 'src/app/modules/auth/models/auth.model';
 
 import { SafeUrl, DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { USER_OBJ_CLAIMS } from 'src/app/common/constants/constants';
+import { AUTH_STATE_CHANGES, USER_OBJ_CLAIMS } from 'src/app/common/constants/constants';
 import { environment } from 'src/environments/environment';
 
 import { AuthStoreState, AuthStoreActions } from 'src/app/common/app-state/store-states';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { MenuService } from 'src/app/common/shared/services/menu.service';
+import { createClient, Provider, SupabaseClient } from '@supabase/supabase-js';
 
+export interface UserCredentials {
+  email: string;
+  password: string;
+}
 @Injectable({
   providedIn: "root",
 })
 export class AuthService extends ObservableStore<AuthStoreState> {
+
+  private supabaseClient: SupabaseClient;
 
   constructor(
     private localStorageService: LocalStorageService, private readonly http: HttpClient,
@@ -33,9 +40,41 @@ export class AuthService extends ObservableStore<AuthStoreState> {
           token: state !== null ? state.token : null,
           refreshToken: state !== null ? state.refreshToken : null,
           authStatus: state !== null ? state.authStatus : null,
+          authStateChanges: state !== null ? state.AuthStateChanges : null,
         };
       },
     });
+
+    this.supabaseClient = createClient(environment.supabaseUrl, environment.supabaseKey);
+    this.supabaseClient.auth.onAuthStateChange((event, session) => {
+      this.updateStoreAuthChanges(event, session);
+    });
+  }
+
+  updateStoreAuthChanges(event, session) {
+    switch (event) {
+      case AUTH_STATE_CHANGES.SIGNED_IN:
+        console.log('SIGNED_IN', session);
+        this.SetStateLoginOp('authStateChanges', {event, session}, 'this');
+        this.initSessionStorage();
+      break;
+      case AUTH_STATE_CHANGES.SIGNED_OUT:
+          console.log('SIGNED_OUT', session);
+          this.cleanUpStogare();
+      break;
+      case AUTH_STATE_CHANGES.TOKEN_REFRESHED:
+          console.log('TOKEN_REFRESHED', session)
+        break;
+      case AUTH_STATE_CHANGES.USER_UPDATED:
+          console.log('USER_UPDATED', session)
+        break;
+      case AUTH_STATE_CHANGES.USER_DELETED:
+          console.log('USER_DELETED', session)
+        break;
+      case AUTH_STATE_CHANGES.PASSWORD_RECOVERY:
+          console.log('PASSWORD_RECOVERY', session)
+        break;
+    }
   }
 
   //#region *** MS ***
@@ -53,29 +92,42 @@ export class AuthService extends ObservableStore<AuthStoreState> {
 
   //#endregion
 
-  hasClaim(claimType: any, claimValue?: any) {
-    // Usage :   *hasClaim="'featureName'"
+  hasClaim(claimType: any, claimValue?: any) { // Usage :   *hasClaim="'featureName'"
     let claims = this.GetStateLoginOp("userLogin");
     let xT = claims.urole;
     return xT !== "Usuario";
   }
 
-  SignOut() {  //TODO: cleanup sessionStorage
-    this.localStorageService.removeItem("usrLgndt");
-    sessionStorage.clear();
-    this.SetStoreSignIn(null);
+//#region user signin & signout
+  async SignOut() {
+    await this.supabaseClient.auth.signOut();
   }
 
-  SignIn(credentials): Observable<any> {
+  SignInProxy(mode: boolean, crdntls?: UserCredentials, provider?: Provider) {
+    return mode ? this.signInWithProvider(provider) : this.signInWithEmailPwd(crdntls.email, crdntls.password);
+  }
+
+  signInWithEmailPwd(email, password) {
+    return this.supabaseClient.auth.signIn({ email, password });
+  }
+
+  signInWithProvider(provider: Provider) {
+    return this.supabaseClient.auth.signIn({ provider });
+  }
+
+  initSessionStorage() {
     this.SetStoreSignIn(USER_OBJ_CLAIMS);
     this.localStorageService.setItem("usrLgndt", USER_OBJ_CLAIMS);
     this.menuService.setMenuOp("menuItems", USER_OBJ_CLAIMS.objModel.user_claims, "AuthService::fetchUserLoginData");
-    return of(USER_OBJ_CLAIMS);
   }
 
-  SignInProxy(mode, crdntls): Observable<any> {
-    return mode ? this.SignInMs(crdntls) : this.SignIn(crdntls);
+  cleanUpStogare() {
+    this.localStorageService.removeItem("usrLgndt");
+    sessionStorage.clear();
+    this.SetStoreSignIn({});
   }
+//#endregion
+
 
   SignInMs(InfData) {
     let headers = new HttpHeaders().set("content-type", "application/json")
@@ -139,16 +191,13 @@ export class AuthService extends ObservableStore<AuthStoreState> {
         this.setState({ token: dt }, `${AuthStoreActions.Token}~${wh}`);
         break;
       case "authStatus":
-        this.setState(
-          { authStatus: dt },
-          `${AuthStoreActions.AuthStatus}~${wh}`
-        );
+        this.setState({ authStatus: dt }, `${AuthStoreActions.AuthStatus}~${wh}`);
         break;
       case "refreshToken":
-        this.setState(
-          { refreshToken: dt },
-          `${AuthStoreActions.ResfeshToken}~${wh}`
-        );
+        this.setState( { refreshToken: dt }, `${AuthStoreActions.ResfeshToken}~${wh}`);
+        break;
+      case "authStateChanges":
+        this.setState( { authStateChanges: dt as AuthStateChanges }, `${AuthStoreActions.AuthStateChanges}~${wh}`);
         break;
     }
   }
@@ -184,6 +233,7 @@ export class AuthService extends ObservableStore<AuthStoreState> {
       menu: null,
       token: null,
       refreshToken: null,
+      authStateChanges: null,
     };
     this.setState(initialState, `${AuthStoreActions.InitAuthStore}~${wh}`);
   }

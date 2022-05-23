@@ -188,6 +188,7 @@ export const ACTION_MSG = {
     ACTUALIZAR_REG: 'Actualizar registro',
     LISTAR_REG: 'Listar registros',
 };
+
 export const EVENT_STATUSES = {
     loading: 'loading',
     loaded: 'loaded',
@@ -195,6 +196,15 @@ export const EVENT_STATUSES = {
     failed: 'failed',
     attended: 'attended',
     notAttended: 'not_attended',
+};
+
+export const AUTH_STATE_CHANGES = {
+  SIGNED_IN: 'SIGNED_IN',
+  SIGNED_OUT: 'SIGNED_OUT',
+  TOKEN_REFRESHED: 'TOKEN_REFRESHED',
+  USER_UPDATED: 'USER_UPDATED',
+  USER_DELETED: 'USER_DELETED',
+  PASSWORD_RECOVERY: 'PASSWORD_RECOVERY',
 };
 
 export const USER_OBJ_CLAIMS = {
