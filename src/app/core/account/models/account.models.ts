@@ -4,6 +4,8 @@ import { formlyRow, formlyInput } from "src/app/common/components/formly-types/u
 
 export interface Profile {
   username: string;
+  firstName: string;
+  lastName: string;
   website: string;
   avatar_url: string;
 }
@@ -16,9 +18,6 @@ export interface Profile {
       { label: 'Qatar', value: '4' },
     ],
   };
-  avatar_url: "0.3099241801828543.jpeg"
-username: "JG test"
-website: "www.my-cool-seb-site.com"
 
   export const FieldsCfg:FormlyFieldConfig[] = [
     formlyRow([
@@ -32,6 +31,13 @@ website: "www.my-cool-seb-site.com"
       formlyInput({
         key: 'lastName',
         label: 'Last Name',
+        templateOptions: {
+          required: true,
+        },
+      }),
+      formlyInput({
+        key: 'username',
+        label: 'UserName',
         templateOptions: {
           required: true,
         },

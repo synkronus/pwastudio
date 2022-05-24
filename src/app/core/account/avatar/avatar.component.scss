@@ -1,3 +1,9 @@
+.avatarCustomStyle{
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 150px;
+}
 
 .avatar {
   border-radius: var(--custom-border-radius);

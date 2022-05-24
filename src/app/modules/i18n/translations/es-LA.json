@@ -164,7 +164,8 @@
     },
     "account": {
       "title": "Account",
-      "configuration": "Configuration"
+      "configuration": "Configuration",
+      "todo": "Todo"
     }
   }
 }

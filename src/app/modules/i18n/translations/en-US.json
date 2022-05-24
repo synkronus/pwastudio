@@ -161,7 +161,8 @@
     },
     "account": {
       "title": "Account",
-      "configuation": "Configuration"
+      "configuation": "Configuration",
+      "todo": "Todo"
     }
   }
 }

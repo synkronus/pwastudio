@@ -1,15 +1,13 @@
-import { SubSink } from 'subsink';
 import { Session } from '@supabase/supabase-js';
-import { Profile } from './../../../common/shared/services/supa/supabase.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { FieldsCfg } from '../models/account.models';
+import { FieldsCfg, Profile } from '../models/account.models';
 import { AccountService } from '../services/account.service';
 import { MessagingService } from 'src/app/common/shared/services/message.service';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import  UnSubscribe from 'src/app/common/shared/utils/unsubscribe';
-import { get } from 'lodash';
+import { get, omit } from 'lodash';
 
 @Component({
   selector: 'app-config',
@@ -25,7 +23,13 @@ export class UserConfigComponent extends UnSubscribe implements OnInit  {
   objCfg: {[s:string]: any} = {
     fields: new Array<FormlyFieldConfig>(),
     form: new FormGroup({}),
-    model: {},
+    model: {
+      id: 0,
+      firstName:'',
+      lastName:'',
+      username:'',
+      website:''
+    },
   };
 
   objAccount = {
@@ -51,9 +55,8 @@ export class UserConfigComponent extends UnSubscribe implements OnInit  {
   async updateProfile(avatar_url: string = '') {
     try {
       this.loading = true;
-      const username = `${this.objCfg.model.firstName} ${this.objCfg.model.lastName}`;
-      const website = `${this.objCfg.model.website}`;
-      await this.accountSvc.updateProfile({ username, website, avatar_url });
+      const objUpdate = {...omit(this.objCfg.model,['email']), avatar_url} as Profile;
+      await this.accountSvc.updateProfile(objUpdate);
     } catch (error:any) {
       this.informUserError(error.message);
     } finally {
@@ -63,30 +66,25 @@ export class UserConfigComponent extends UnSubscribe implements OnInit  {
 
 
   async getProfile() {
-    try {
       this.loading = true;
       let { data: profile, error, status } = await this.accountSvc.profile;
       console.log('profile ***',profile, error, status, get(this.authService.user,['email'], null), this.objAccount.session );
 
-      this.objCfg.model = {
-        id: 0,
-        firstName: profile?.username,
-        lastName: '',
-        email: get(this.authService.user,['email'], null),
-        website: profile?.website,
-      };
-
-      if (error && status !== 406) {
-        throw error;
-      }
-      if (profile) {
+      if (profile && !error) {
+        this.objCfg.model = {
+          id: 0,
+          firstName: profile?.firstName,
+          lastName: profile?.lastName,
+          username: profile?.username,
+          email: get(this.authService.user,['email'], null),
+          website: profile?.website,
+        };
         this.objAccount.profile = profile;
+
+      } else {
+        this.informUserError(error.message);
       }
-    } catch (error:any) {
-      this.informUserError(error.message);
-    } finally {
-      this.loading = false;
-    }
+
   }
 
 
@@ -97,7 +95,7 @@ export class UserConfigComponent extends UnSubscribe implements OnInit  {
 
   onSubmit() {
     if (this.objCfg.form.valid) {
-      console.log(this.objCfg);
+      this.updateProfile(this.objAccount.profile?.avatar_url);
     }
   }
 

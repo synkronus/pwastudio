@@ -11,6 +11,8 @@ export interface AuthStateChanges  {
 
 export interface Profile {
   username: string;
+  firstName: string;
+  lastName: string;
   website: string;
   avatar_url: string;
 }

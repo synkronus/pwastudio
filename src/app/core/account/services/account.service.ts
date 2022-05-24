@@ -43,7 +43,7 @@ export class AccountService {
   get profile() {
     return this.supabaseClient
       .from('profiles')
-      .select(`username, website, avatar_url`)
+      .select(`username, firstName, lastName, website, avatar_url`)
       .eq('id', this.user?.id)
       .single();
   }

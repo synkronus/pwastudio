@@ -2,12 +2,14 @@
   <div class="cstm-card">
     <div class="p-grid" style="margin-top: -20px;">
         <p-card style="width:100%">
-          <app-avatar
-              [avatarUrl]="objAccount.profile?.avatar_url"
-              (upload)="updateProfile($event)"
-            >
-           </app-avatar>
-
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3">
+              <app-avatar
+                  [avatarUrl]="objAccount.profile?.avatar_url"
+                  (upload)="updateProfile($event)">
+               </app-avatar>
+            </div>
+            <div class="p-col-12 p-md-9">
               <form [formGroup]="objCfg.form" >
                 <formly-form
                   [form]="objCfg.form"
@@ -15,6 +17,8 @@
                   [fields]="objCfg.fields">
                 </formly-form>
               </form>
+            </div>
+          </div>
 
           <ng-template pTemplate="footer" >
             <button pButton pRipple label="Guardar" icon="pi pi-check" type="submit"

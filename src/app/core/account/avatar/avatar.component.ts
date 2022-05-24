@@ -4,35 +4,13 @@ import { AccountService } from '../services/account.service';
 
 @Component({
   selector: 'app-avatar',
-  template: `
-    <div>
-      <img
-        *ngIf="_avatarUrl"
-        [src]="_avatarUrl"
-        alt="Avatar"
-        class="avatar image"
-        style="height: 150px; width: 150px"
-      />
-    </div>
-    <div *ngIf="!_avatarUrl" class="avatar no-image" style="height: 150px; width: 150px"></div>
-    <div style="width: 150px">
-      <label class="button primary block" for="single">
-        {{ uploading ? 'Uploading ...' : 'Upload' }}
-      </label>
-      <input
-        style="visibility: hidden;position: absolute"
-        type="file"
-        id="single"
-        accept="image/*"
-        (change)="uploadAvatar($event)"
-        [disabled]="uploading"
-      />
-    </div>
-  `,
+  templateUrl:'./avatar.component.html',
+  styleUrls: ['./avatar.component.scss'],
 })
 export class AvatarComponent {
-  _avatarUrl: SafeResourceUrl | undefined;
+  _avatarUrl: SafeResourceUrl = 'assets/custom/images/user_default.png';
   uploading = false;
+  inlineUserMenuActive = false;
 
   @Input()
   set avatarUrl(url: string | undefined) {
@@ -48,8 +26,9 @@ export class AvatarComponent {
   async downloadImage(path: string) {
     try {
       const result = await this.accountSvc.downLoadImage(path);
-      if (result !== null)
-        this._avatarUrl = this.dom.bypassSecurityTrustResourceUrl(URL.createObjectURL(result?.data as Blob));
+        this._avatarUrl = (result !== null)
+                    ? this.dom.bypassSecurityTrustResourceUrl(URL.createObjectURL(result?.data as Blob))
+                    : 'assets/custom/images/user_default.png';
     } catch (error:any) {
       console.error('Error downloading image: ', error.message);
     }
