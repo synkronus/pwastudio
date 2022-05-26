@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AuthChangeEvent, createClient, Provider, Session,
               SupabaseClient, User, } from '@supabase/supabase-js';
+import { get } from 'lodash';
 import { BehaviorSubject, from, Observable, Subject } from 'rxjs';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
-import { Profile } from '../account/models/account.models';
 
 export interface AuthStateChanges  {
   event: AuthChangeEvent | null;
@@ -18,26 +19,24 @@ export class TodoService {
   private userAuthChange$: BehaviorSubject<AuthStateChanges> = new BehaviorSubject({} as AuthStateChanges);
   public readonly userAuthCurrentState: Observable<AuthStateChanges> = this.userAuthChange$.asObservable();
 
-  constructor() {
+  constructor(private readonly authService: AuthService) {
     this.supabaseClient = createClient(environment.supabaseUrl, environment.supabaseKey);
     this.supabaseClient.auth.onAuthStateChange((event, session) => {
       this.userAuthChange$.next({event, session});
     });
   }
 
-
-  getSession(): Session | null {
-    return this.supabaseClient.auth.session();
-  }
-
-
 //#region   Todos
   fetchTodos() {
-    return this.supabaseClient.from('todos').select('*').order('id', { ascending: false });
+    const userId = get(this.authService.user,['id'], null);
+    return this.supabaseClient.from('todos')
+            .select('*')
+              .eq('user_id', userId)
+                .order('id', { ascending: false });
   }
 
   addTodo(task: string) {
-    const userId = this.getSession()?.user?.id as string;
+    const userId = get(this.authService.user,['id'], null) as string;
     return this.supabaseClient.from('todos').insert({ task, user_id: userId }).single();
   }
 

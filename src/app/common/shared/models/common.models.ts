@@ -10,4 +10,12 @@ export class AuditableFields {
     total?: number
     data?: T
   }
-  
+
+  export class MsgConfirmPopOver{
+    key: string;
+    acceptLabel: string;
+    rejectLabel: string;
+    message: string;
+    icon: string;
+    defaultFocus: string;
+  }

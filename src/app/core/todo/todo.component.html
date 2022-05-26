@@ -1,24 +1,52 @@
+<p-confirmPopup [key]="'popup-todos'"></p-confirmPopup>
+
 <p-card header="{{componentTitle}}" [style]="{'margin-bottom': '2em', 'width':'100%'}">
-  <div class="cstm-card">
+  <div class="cstm-card" >
+
+    <div class="p-grid">
+      <div class="p-col-12 p-sm-12" >
+          <p-toolbar styleClass="p-mb-5">
+              <ng-template pTemplate="left" >
+                  <!-- <label for="search"></label>
+                  <input #inputBar type="text" id="search" pInputText size="35" placeholder="Buscar..."  style="width:auto;font-size: .8em !important;"
+                          [(ngModel)]="objFilter.contains"  (input)="dt.filterGlobal($event.target.value, 'contains')" > -->
+              </ng-template>
+              <ng-template pTemplate="right">
+                  <button pButton type="button"  icon="pi pi-plus" class="p-button-text p-button-raised"
+                      (click)="showMdlHandler(null,'new')"></button>
+                  <button pButton type="button"  icon="pi pi-filter-slash" class="p-button-text p-button-raised"
+                      (click)="dt.filterGlobal('', 'contains'); ClearTblCat(dt);" style="margin-left: 10px;"></button>
+              </ng-template>
+          </p-toolbar>
+      </div>
+    </div>
+
     <div class="p-grid" style="margin-top: -20px;">
         <p-card style="width:100%">
           <div class="p-grid">
-            <p-table [columns]="cols" [value]="todos" responsiveLayout="scroll" class="tblStyle">
+            <p-table #dt [columns]="cols" [value]="todos" responsiveLayout="scroll" class="tblStyle">
               <ng-template pTemplate="header" let-columns>
                   <tr>
-                    <th scope="col" id="id">{{'#'}}</th>
+                    <th scope="col" >{{'#'}}</th>
                     <th *ngFor="let col of columns"> {{col.header}} </th>
                     <th scope="col">Action</th>
                   </tr>
               </ng-template>
-              <ng-template pTemplate="body" let-rowData let-index="i" let-columns="columns" >
-                  <tr>
+              <ng-template pTemplate="body" let-rowData let-rowIndex="i" let-columns="columns" >
+                  <tr >
                     <td> {{ i+1 }}</td>
-                    <td *ngFor="let col of columns">{{rowData[col.field]}}</td>
-                    <td><p-checkbox [value]="rowData"
+                    <td >{{rowData['task']}}</td>
+                    <td><p-checkbox
+                        [value]="rowData"
                         [(ngModel)] ="rowData['is_complete']"
                         (onChange)="onChangeRow($event, rowData)"
-                        binary="true" ></p-checkbox></td>
+                        binary="true" ></p-checkbox>
+                    </td>
+                    <td style="text-align: center;">
+                      <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-secondary p-button-text"
+                          pTooltip="Delete" tooltipPosition="top" styleClass="p-button-sm"
+                          (click)="onDeleteCmd($event, rowData)"></button>
+                    </td>
                   </tr>
               </ng-template>
           </p-table>
@@ -28,4 +56,28 @@
   </div>
 </p-card>
 
+<p-dialog [(visible)]="objCfg.showDialog" [style]="{width: '800px'}" [header]="'Todos'" [modal]="true" styleClass="p-fluid"
+[contentStyle]="{ 'overflow-y': 'auto', 'overflow-x': 'hidden', 'max-height': '70vh', 'min-height': '200px'}">
+    <ng-template pTemplate="content" closable="false">
+        <p-card style="width:100%;margin-top:50px">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-12">
+              <form [formGroup]="objCfg.form" >
+                <formly-form
+                  [form]="objCfg.form"
+                  [model]="objCfg.model"
+                  [fields]="objCfg.fields">
+                </formly-form>
+              </form>
+            </div>
+          </div>
+        </p-card>
+    </ng-template>
 
+    <ng-template pTemplate="footer" >
+      <button pButton pRipple label="Guardar" icon="pi pi-check" type="submit"
+          class="p-button-text p-button-rounded p-button-raised" (click)="onSubmit()" [disabled]="!objCfg.form.valid"></button>
+      <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text p-button-rounded p-button-raised p-ml-2"
+          type="reset" (click)="showDialog(false)" ></button>
+    </ng-template>
+</p-dialog>

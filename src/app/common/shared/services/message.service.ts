@@ -3,12 +3,20 @@ import { TranslateService } from '@ngx-translate/core';
 import { Injectable } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import UnSubscribe from '../utils/unsubscribe';
+import { MsgConfirmPopOver } from '../models/common.models';
+
+
+export const MSG_UTILS = {
+  WARN: 'warn',
+  SUCCESS: 'success',
+  ERROR: 'error',
+};
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessagingService extends UnSubscribe {
-
 
   constructor(private msgSvc: MessageService, private translate: TranslateService) {
       super();
@@ -51,6 +59,17 @@ export class MessagingService extends UnSubscribe {
     this.subSink.sink = this.translate.get('validations.characterRange').subscribe((x: string) => value = x);
     value = value.replace('minLength', `${minLength}`).replace('maxLength', `${maxLength}`);
     return value;
+  }
+
+  confirmPopOverWrap (): MsgConfirmPopOver {
+  return {
+      key: '',
+      acceptLabel: 'Si',
+      rejectLabel: 'No',
+      message: 'Esta seguro de elimar este item?',
+      icon: 'pi pi-exclamation-triangle',
+      defaultFocus: 'accept'
+    }
   }
 
 }
