@@ -8,6 +8,9 @@
                   [avatarUrl]="objAccount.profile?.avatar_url"
                   (upload)="updateProfile($event)">
                </app-avatar>
+               <div style="text-align: center">
+                 <p class="layout-profile-name">{{ objCfg.model['username'] }}</p>
+               </div>
             </div>
             <div class="p-col-12 p-md-9">
               <form [formGroup]="objCfg.form" >

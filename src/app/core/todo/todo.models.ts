@@ -13,7 +13,7 @@ import { formlyRow, formlyInput } from "src/app/common/components/formly-types/u
     formlyRow([
       formlyInput({
         key: 'task',
-        label: 'First Name',
+        label: 'Task name',
         templateOptions: {
           required: true,
         },

@@ -7,9 +7,10 @@
       <div class="p-col-12 p-sm-12" >
           <p-toolbar styleClass="p-mb-5">
               <ng-template pTemplate="left" >
-                  <!-- <label for="search"></label>
-                  <input #inputBar type="text" id="search" pInputText size="35" placeholder="Buscar..."  style="width:auto;font-size: .8em !important;"
-                          [(ngModel)]="objFilter.contains"  (input)="dt.filterGlobal($event.target.value, 'contains')" > -->
+                  <label for="search"></label>
+                  <input #inputBar type="text" id="search" pInputText
+                          placeholder="Buscar..."  style="width:auto;font-size: .8em !important;"
+                            (input)="dt.filterGlobal($event.target.value, 'contains')" >
               </ng-template>
               <ng-template pTemplate="right">
                   <button pButton type="button"  icon="pi pi-plus" class="p-button-text p-button-raised"
@@ -32,7 +33,7 @@
                     <th scope="col">Action</th>
                   </tr>
               </ng-template>
-              <ng-template pTemplate="body" let-rowData let-rowIndex="i" let-columns="columns" >
+              <ng-template pTemplate="body" let-rowData let-i="rowIndex" let-columns="columns" >
                   <tr >
                     <td> {{ i+1 }}</td>
                     <td >{{rowData['task']}}</td>
@@ -56,24 +57,24 @@
   </div>
 </p-card>
 
-<p-dialog [(visible)]="objCfg.showDialog" [style]="{width: '800px'}" [header]="'Todos'" [modal]="true" styleClass="p-fluid"
-[contentStyle]="{ 'overflow-y': 'auto', 'overflow-x': 'hidden', 'max-height': '70vh', 'min-height': '200px'}">
+<p-dialog
+  [(visible)]="objCfg.showDialog"
+  [style]="{width: '800px'}"
+  [header]="'Todos'"
+  [modal]="true"
+  styleClass="p-fluid"
+  [contentStyle]="{ 'overflow-y': 'auto', 'overflow-x': 'hidden', 'max-height': '70vh', 'min-height': '200px'}">
     <ng-template pTemplate="content" closable="false">
-        <p-card style="width:100%;margin-top:50px">
-          <div class="p-grid">
-            <div class="p-col-12 p-md-12">
-              <form [formGroup]="objCfg.form" >
-                <formly-form
-                  [form]="objCfg.form"
-                  [model]="objCfg.model"
-                  [fields]="objCfg.fields">
-                </formly-form>
-              </form>
-            </div>
-          </div>
-        </p-card>
+      <div class="p-grid frm-dialog card">
+        <form [formGroup]="objCfg.form" >
+          <formly-form
+            [form]="objCfg.form"
+            [model]="objCfg.model"
+            [fields]="objCfg.fields">
+          </formly-form>
+        </form>
+      </div>
     </ng-template>
-
     <ng-template pTemplate="footer" >
       <button pButton pRipple label="Guardar" icon="pi pi-check" type="submit"
           class="p-button-text p-button-rounded p-button-raised" (click)="onSubmit()" [disabled]="!objCfg.form.valid"></button>

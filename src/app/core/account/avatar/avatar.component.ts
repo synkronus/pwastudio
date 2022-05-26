@@ -35,6 +35,7 @@ export class AvatarComponent {
   }
 
   async uploadAvatar(event: any) {
+    let filePath = ``;
     try {
       this.uploading = true;
       if (!event.target.files || event.target.files.length === 0) {
@@ -44,7 +45,7 @@ export class AvatarComponent {
       const file = event.target.files[0];
       const fileExt = file.name.split('.').pop();
       const fileName = `${Math.random()}.${fileExt}`;
-      const filePath = `${fileName}`;
+      filePath = `${fileName}`;
 
       await this.accountSvc.uploadAvatar(filePath, file);
       this.upload.emit(filePath);
@@ -52,6 +53,7 @@ export class AvatarComponent {
       alert(error.message);
     } finally {
       this.uploading = false;
+      this.avatarUrl = filePath;
     }
   }
 }
