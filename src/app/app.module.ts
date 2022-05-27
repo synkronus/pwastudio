@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, CommonModule, PathLocationStrategy } from '@angular/common';
 import { AppRoutesModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { CoreAppModule } from './core/pages.module';
@@ -61,7 +61,7 @@ export const protectedResourceMap: any =
       useClass: ErrorHandlerInterceptor,
       multi: true,
     },
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
     { provide: ErrorHandler, useClass: ErrorsHandler },
   ],
   schemas: [
