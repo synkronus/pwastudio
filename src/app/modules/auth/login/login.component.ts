@@ -1,11 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import {MessageService} from 'primeng/api';
 import { SubSink } from 'subsink';
 
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AuthService, UserCredentials } from '../services/auth.service';
 import { Provider, Session } from '@supabase/supabase-js';
 import  UnSubscribe  from 'src/app/common/shared/utils/unsubscribe';
@@ -57,7 +57,6 @@ export class LoginComponent extends UnSubscribe implements OnInit {
       (state) => {
         if (!!state && state.stateChanges.hasOwnProperty("authStateChanges")) {
           this.session = get(state.stateChanges.authStateChanges,['session'], null);
-          console.log('auth tracking changes ***',this.session, has(this.session,['user', 'app_metadata', 'provider']));
           if(!!this.session && has(this.session,['user', 'app_metadata', 'provider']))
             this.router.navigateByUrl('/inicio');
         }

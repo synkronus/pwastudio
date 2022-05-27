@@ -54,12 +54,10 @@ export class AuthService extends ObservableStore<AuthStoreState> {
   updateStoreAuthChanges(event, session) {
     switch (event) {
       case AUTH_STATE_CHANGES.SIGNED_IN:
-        console.log('SIGNED_IN', session);
         this.SetStateLoginOp('authStateChanges', {event, session}, 'this');
         this.initSessionStorage();
       break;
       case AUTH_STATE_CHANGES.SIGNED_OUT:
-          console.log('SIGNED_OUT', session);
           this.cleanUpStogare();
       break;
       case AUTH_STATE_CHANGES.TOKEN_REFRESHED:
@@ -77,8 +75,7 @@ export class AuthService extends ObservableStore<AuthStoreState> {
     }
   }
 
-  //#region *** MS ***
-
+//#region *** MS ***
   getUserPhoto(dt): Observable<SafeUrl> {
     let headers: Headers = new Headers();
     headers.append("Authorization", "Bearer " + dt.idToken.rawIdToken);
@@ -89,8 +86,7 @@ export class AuthService extends ObservableStore<AuthStoreState> {
       // return this.sanitizer.bypassSecurityTrustUrl(url.createObjectURL(result));
     }));
   }
-
-  //#endregion
+//#endregion
 
   hasClaim(claimType: any, claimValue?: any) { // Usage :   *hasClaim="'featureName'"
     let claims = this.GetStateLoginOp("userLogin");

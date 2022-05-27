@@ -23,7 +23,34 @@
         "files": [
           "/assets/**",
           "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/**",
+          "https://maps.google.com/**"
         ]
+      }
+    }
+  ],
+
+  "dataGroups": [
+    {
+      "name": "WorldCountries",
+      "urls": ["/countries"],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 50,
+        "maxAge": "100d",
+        "timeout": "5s"
+      }
+    },
+    {
+      "name": "WorldCountries",
+      "urls": ["/countries"],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 50,
+        "maxAge": "100d",
+        "timeout": "5s"
       }
     }
   ]

@@ -20,8 +20,8 @@
     ]
   },
   "hosting": {
-    "public": "dist/credishop",
-    "site": "moviltec-shop",
+    "public": "dist/spa",
+    "site": "pwastudio",
     "cleanUrls": true,
     "rewrites": [
       {
