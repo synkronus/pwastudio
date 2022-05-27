@@ -116,7 +116,9 @@ export class AuthService extends ObservableStore<AuthStoreState> {
   }
 
   signInWithProvider(provider: Provider) {
-    return this.supabaseClient.auth.signIn({ provider });
+    return this.supabaseClient.auth.signIn(
+      { provider },
+      { redirectTo: 'https://synkronus.github.io/pwastudio/inicio'});
   }
 
   initSessionStorage() {

@@ -7,7 +7,7 @@
     "config": "ts-node ./config/set-env.ts",
     "build": "npm run config && ng build",
     "deployx": "npm run write:env -s && ng deploy",
-    "deploy": "ng deploy",
+    "deployGHP": "ng build --configuration production --output-path docs --base-href=/pwastudio/ ",
     "build-pdn": "ng build --configuration production && javascript-obfuscator dist --output dist",
     "watch": "ng build --watch --configuration development",
     "post-build": "node ./build/post-build.js",

@@ -176,8 +176,12 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - explicit type returns
 
 
+GitHub Pages Deploy
 
+ref: https://www.syncfusion.com/blogs/post/easy-steps-to-host-an-angular-app-in-github-pages.aspx
 
+- **git remote** **add** **origin** [**https**://github.com/](**https**:**//github.com/)`<username>`/`<repository>`.git
+- ng deploy --base-href=/pwastudio/ --repo=https://github.com/synkronus/pwastudio.git
 
 ```bash
 npm i angular-cli-ghpages --save-dev
