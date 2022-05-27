@@ -7,7 +7,9 @@ import UnSubscribe from 'src/app/common/shared/utils/unsubscribe';
 
 @Component({
   selector: 'app-lang-selector',
-  templateUrl: './lang-selector.component.html',
+  template: `
+    <p-dropdown [options]="options" [(ngModel)]="language" (onClick)="setLanguage()"></p-dropdown>
+  `,
   styleUrls: ['./lang-selector.component.scss']
 })
 export class LangSelectorComponent extends UnSubscribe implements OnInit {

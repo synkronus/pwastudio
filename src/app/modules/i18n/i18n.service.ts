@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
-import enUS from './translations/en-US.json';
-import esLA from './translations/es-LA.json';
+import enUS from 'src/assets/translations/en-US.json';
+import esLA from 'src/assets/translations/es-LA.json';
 
 const languageKey = 'language';
 
