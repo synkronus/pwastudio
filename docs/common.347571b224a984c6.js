@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkspa=self.webpackChunkspa||[]).push([[592],{7346:(u,p,l)=>{l.d(p,{d:()=>s,u:()=>t});const s=e=>({fieldGroupClassName:"p-fluid p-formgrid p-grid",fieldGroup:e}),t=e=>({key:e.key,type:"input",className:"p-field p-col-12 p-md-4",templateOptions:Object.assign({label:e.label},e.templateOptions)})}}]);
