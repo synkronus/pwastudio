@@ -1,10 +1,9 @@
 # Getting started
 
 1. Go to project folder and install dependencies:
- npm install
-
+   npm install
 2. Launch development server, and open `localhost:4200` in your browser:
- npm start
+   npm start
 
 # Project structure
 
@@ -38,18 +37,18 @@ reports/                     test and coverage reports
 
 Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts).
 
-Task                            | Description
---------------------------------|--------------------------------------------------------------------------------------
-`npm start`                     | Run development server on `http://localhost:4200/`
-`npm run serve:sw`              | Run test server on `http://localhost:4200/` with service worker enabled
-`npm run build [-- --configuration=production]` | Lint code and build web app for production (with [AOT](https://angular.io/guide/aot-compiler)) in `dist` folder
-`npm test`                      | Run unit tests via [Karma](https://karma-runner.github.io) in watch mode
-`npm run test:ci`               | Lint code and run unit tests once for continuous integration
-`npm run e2e`                   | Run e2e tests using [Protractor](http://www.protractortest.org)
-`npm run lint`                  | Lint code
-`npm run docs`                  | Display project documentation and coding guides
-`npm run compodoc`              | Generates and display generates documentation from code
-`npm run prettier`              | Automatically format all `.ts`, `.js` & `.scss` files
+| Task                                              | Description                                                                                                   |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `npm start`                                     | Run development server on `http://localhost:4200/`                                                          |
+| `npm run serve:sw`                              | Run test server on `http://localhost:4200/` with service worker enabled                                     |
+| `npm run build [-- --configuration=production]` | Lint code and build web app for production (with[AOT](https://angular.io/guide/aot-compiler)) in `dist` folder |
+| `npm test`                                      | Run unit tests via[Karma](https://karma-runner.github.io) in watch mode                                          |
+| `npm run test:ci`                               | Lint code and run unit tests once for continuous integration                                                  |
+| `npm run e2e`                                   | Run e2e tests using[Protractor](http://www.protractortest.org)                                                   |
+| `npm run lint`                                  | Lint code                                                                                                     |
+| `npm run docs`                                  | Display project documentation and coding guides                                                               |
+| `npm run compodoc`                              | Generates and display generates documentation from code                                                       |
+| `npm run prettier`                              | Automatically format all `.ts`, `.js` & `.scss` files                                                   |
 
 When building the application, you can specify the target configuration using the additional flag
 `--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
@@ -129,6 +128,7 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [End-to-end tests](docs/coding-guides/e2e-tests.md)
 
 #### Other documentation
+
 - [I18n guide](docs/i18n.md)
 - [Working behind a corporate proxy](docs/corporate-proxy.md)
 - [Updating dependencies and tools](docs/updating.md)
@@ -136,35 +136,55 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Browser routing](docs/routing.md)
 
 ## Directories
-  - External convention organization base
-  - Internal core grouping files in directories for feature base
-  - Sub directory when required to avoid cluttering
+
+- External convention organization base
+- Internal core grouping files in directories for feature base
+- Sub directory when required to avoid cluttering
 
 ## Naming conventions
-  - Use english words with self explanatory naming for documentation
-  - Use lastes EGMA fearures
-  - Use OOP with TypeScript
-  - Use SOLID, KISS, DRY principles
-  - Use Design Patterns
-  - Use App State Management when requiere
-  - Use Container presentation design pattern
+
+- Use english words with self explanatory naming for documentation
+- Use lastes EGMA fearures
+- Use OOP with TypeScript
+- Use SOLID, KISS, DRY principles
+- Use Design Patterns
+- Use App State Management when requiere
+- Use Container presentation design pattern
 
 # clases, services, others
-  - middle dash to separate large names ex: todo-list.component.ts, general.service.ts
-  - use post-fix type of file ex: .component, .service...
 
-# local variables 
-  - declare as let - limited scope intented
-  - camel case
-  - self explanatory name
+- middle dash to separate large names ex: todo-list.component.ts, general.service.ts
+- use post-fix type of file ex: .component, .service...
+
+# local variables
+
+- declare as let - limited scope intented
+- camel case
+- self explanatory name
 
 # global var
-  - declare as constant
-  - Upper case
-  - self explanatory name
+
+- declare as constant
+- Upper case
+- self explanatory name
 
 # functions & methods
-  - Pascal case
-  - self explanatory name
-  - explicit type arguments
-  - explicit type returns
+
+- Pascal case
+- self explanatory name
+- explicit type arguments
+- explicit type returns
+
+
+
+
+
+```bash
+npm i angular-cli-ghpages --save-dev
+```
+
+ng build --prod --base-href "[https://synkronus.github.io/pwastudio.github.io](https://synkronus.github.io/pwastudio.github.io/)/GitHubfolderName/"
+
+```bash
+npx angular-cli-ghpages --dir=dist/Project-name
+```
