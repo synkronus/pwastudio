@@ -6,4 +6,4 @@ const appRoutes : Routes = [
     { path : 'login', component : LoginComponent},
     { path: '**', redirectTo: '/login',pathMatch : 'full'},
 ];
-export const AppRoutesModule = RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled', useHash: true});
+export const AppRoutesModule = RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'});
