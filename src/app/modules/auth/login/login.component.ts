@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import {MessageService} from 'primeng/api';
 import { SubSink } from 'subsink';
-import { environment } from 'src/environments/environment';
 
 import { Subscription, Observable } from 'rxjs';
 import { AuthService, UserCredentials } from '../services/auth.service';
-import { Provider } from '@supabase/supabase-js';
+import { Provider, Session } from '@supabase/supabase-js';
 import  UnSubscribe  from 'src/app/common/shared/utils/unsubscribe';
+import { get, has } from 'lodash';
 
 export const EmailValidation = [
   Validators.required,
@@ -33,15 +33,15 @@ export class LoginComponent extends UnSubscribe implements OnInit {
   subSink = new SubSink();
   redirectUrl;
   sttcFiles:any[];
-  urlImg: string = `${environment.url_files}`;
   urlBackImg:string =  `assets/custom/images/fondo_logo.png`;
 
   subscriptions: Subscription[] = [];
   accountName = "";
   isLoggedIn = false;
+  session = null as Session;
 
   constructor(private fb: FormBuilder, private authService: AuthService,
-        private router: Router, private toastService: MessageService) {
+                private router: Router, private toastService: MessageService) {
           super();
         // route.paramMap.subscribe(
         //   params => (this.redirectUrl = params.get('redirectUrl'))
@@ -53,6 +53,15 @@ export class LoginComponent extends UnSubscribe implements OnInit {
       email: ["", EmailValidation],
       password: ["", PasswordValidation],
     });
+    this.subSink.sink = this.authService.stateWithPropertyChanges.subscribe(
+      (state) => {
+        if (!!state && state.stateChanges.hasOwnProperty("authStateChanges")) {
+          this.session = get(state.stateChanges.authStateChanges,['session'], null);
+          console.log('auth tracking changes ***',this.session, has(this.session,['user', 'app_metadata', 'provider']));
+          if(!!this.session && has(this.session,['user', 'app_metadata', 'provider']))
+            this.router.navigateByUrl('/inicio');
+        }
+      });
   }
 
   handleOAuthLogin(provider: Provider) {

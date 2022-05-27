@@ -22,11 +22,6 @@ import { AngularFireModule } from './angular-fire.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { CustomAppModule } from './modules/custom-app.module';
 
-export const protectedResourceMap: any =
-  [
-    [environment.base_url, environment.scopeUri]
-  ];
-
 @NgModule({
   imports: [
     CommonModule,
